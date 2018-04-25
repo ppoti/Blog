@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>Git常用命令与配置</title>
+      <link href="/Blog/2018/04/25/git/"/>
+      <url>/Blog/2018/04/25/git/</url>
+      <content type="html"><![CDATA[<p>一，配置私钥</p><pre><code>git config --global user.name &quot;user&quot;    //设置名字git config --global user.email &quot;user@qq.com&quot;  //设置邮箱  ssh-keygen -t rsa -C  //三次回车即可生成 ssh keyssh-keygen  //不同平台可以使用这个 ssh keycat ~/.ssh/id_rsa.pub  //查看你的 public key</code></pre><hr><p>二，在gitee，coding，github添加你的key和ssh</p><blockquote><p>添加方法大同小异<br>个人 -&gt; 设置 -&gt; SSH 公钥<br>输入标题，以及public key，确认即可。</p></blockquote><hr><p>三，git和gitee项目关联</p><blockquote><p>提交仓库</p></blockquote><pre><code>git add . //提交所有 git add &apos;&apos;  //提交单个git commit -m &quot;first&quot;  //提交时候设置的版本号git push //提交 git push origin mastergit remote add origin +&quot;仓库地址&quot;git remote -v //查询权限git push --force origin master //替换当前</code></pre><blockquote><p>提取仓库</p></blockquote><pre><code>git clone //第一次拉取代码git pull // 拉取代码 git fetch --all //下载远程的库git reset --hard origin/master //强制与master覆盖</code></pre><blockquote><p>分支</p></blockquote><pre><code>git branch &apos;&apos;    //新建分支git checkout &apos;&apos;  //切换分支git pull    //拉取分支到本地开发git branch   //查看当前分支git branch -D &apos;&apos; //删除分支git add . &amp;&amp; git commit -m &apos;cont&apos; &amp;&amp; git push  //切换到分支,再提交内容，git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push 切换到主分支,再合并分支</code></pre>]]></content>
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
