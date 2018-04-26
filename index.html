@@ -72,9 +72,109 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-join" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Blog/2018/04/25/git/" class="article-date">
+    <a href="/Blog/2018/04/25/join/" class="article-date">
+  <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/04/25/join/">JavaScript Array.prototype.join()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>join()方法将当前数组的所有元素以指定的分隔符连接起来组成字符串</p>
+<p><strong>语法</strong></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>.<span class="keyword">join</span>(separator)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">separator	可选/<span class="keyword">String</span>类型指定要使用的分隔符。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>如果参数为空(没有指定分隔符)则用默认逗号作为分隔符。<br>如果参数为空字符串则数组中元素直接相连。<br>参数应为String类型，如果不是，则会对参数调用toString()方法将其转为字符串。</p>
+<p><strong>返回值</strong><br>join()方法的返回值为String类型，返回数组中所有元素以指定的分隔符连接起来所组成的字符串。如果数组中没有元素，则返回空字符串。</p>
+<p><strong>示例</strong><br>将两个数组合并为新数组、将元素添加到数组。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">Array</span> = [<span class="string">'Tody'</span>, <span class="string">'Yestady'</span>, <span class="string">'Tomorrow'</span>];</span><br><span class="line"><span class="keyword">var</span> Array1 = <span class="keyword">Array</span>.join();         <span class="comment">// Array1 "Tody,Yestady,Tomorrow"</span></span><br><span class="line"><span class="keyword">var</span> Array2 = <span class="keyword">Array</span>.join(<span class="string">', '</span>);     <span class="comment">// Array2的值变为 "Tody, Yestady, Tomorrow"</span></span><br><span class="line"><span class="keyword">var</span> Array3 = <span class="keyword">Array</span>.join(<span class="string">' + '</span>);    <span class="comment">// Array3的值变为 "Tody + Yestady + Tomorrow"</span></span><br><span class="line"><span class="keyword">var</span> Array4 = <span class="keyword">Array</span>.join(<span class="string">''</span>);       <span class="comment">// Array4的值变为 "TodyYestadyTomorrow"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对&#123;&#125;调用toString()方法 </span></span><br><span class="line"><span class="keyword">var</span> Array5 = <span class="keyword">Array</span>.join(<span class="comment">&#123;&#125;</span>)        <span class="comment">// Array4的值变为 "Tody[object Object]Yestady[object Object]Tomorrow"</span></span><br></pre></td></tr></table></figure>
+<p><code>`</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/04/25/join/" data-id="cjgg88itj0001qotxzn8wrioy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript/array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/04/25/javascript/array/" class="article-date">
+  <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/04/25/javascript/array/">JavaScript Array 对象的属性和方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> Array对象用于存储多个数据项，数据可以是任意类型</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span> 对象的属性</span><br><span class="line"><span class="function"><span class="keyword">constructor</span> 返回创建该对象的构造函数。</span></span><br><span class="line"><span class="function"><span class="title">length</span> 设置或返回数组中元素的个数。</span></span><br><span class="line"><span class="function"><span class="title">prototype</span> 返回创建该对象的函数的原型对象</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p> Array 对象的方法</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Array 构造一个新的 Array 对象。</span><br><span class="line"><span class="function"><span class="title">concat</span><span class="params">()</span></span> 连接两个或更多的对象或数组，并返回拼接后的新数组。</span><br><span class="line"><span class="function"><span class="title">join</span><span class="params">()</span></span>	把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</span><br><span class="line"><span class="function"><span class="title">pop</span><span class="params">()</span></span>	删除并返回数组的最后一个元素。</span><br><span class="line"><span class="function"><span class="title">push</span><span class="params">()</span></span>	向数组的末尾添加一个或更多元素，并返回新的数组长度。</span><br><span class="line"><span class="function"><span class="title">reverse</span><span class="params">()</span></span>	颠倒数组中元素的顺序。</span><br><span class="line"><span class="function"><span class="title">shift</span><span class="params">()</span></span>	删除并返回数组的第一个元素。</span><br><span class="line"><span class="function"><span class="title">slice</span><span class="params">()</span></span>	以数组的形式返回当前数组中的一部分(连续的一部分)。</span><br><span class="line"><span class="function"><span class="title">sort</span><span class="params">()</span></span>	对数组的元素进行排序，可以自定义排序方式。</span><br><span class="line"><span class="function"><span class="title">splice</span><span class="params">()</span></span>	移除数组中的元素，也可同时向数组中添加一个或多个新元素。</span><br><span class="line"><span class="function"><span class="title">toString</span><span class="params">()</span></span>	把数组转换为字符串，并返回该字符串。</span><br><span class="line"><span class="function"><span class="title">toLocaleString</span><span class="params">()</span></span>	把数组转换为”本地化”的字符串，并返回该字符串。</span><br><span class="line"><span class="function"><span class="title">unshift</span><span class="params">()</span></span>	向数组的开头添加一个或多个元素，并返回新的数组长度。</span><br><span class="line"><span class="function"><span class="title">valueOf</span><span class="params">()</span></span>	返回数组对象的原始值。</span><br><span class="line"><span class="function"><span class="title">isArray</span><span class="params">()</span></span>	判断某个值是否为数组。</span><br><span class="line"><span class="function"><span class="title">indexOf</span><span class="params">()</span></span>	查找元素在数组中第一次出现的索引值。</span><br><span class="line"><span class="function"><span class="title">lastIndexOf</span><span class="params">()</span></span>	从后向前查找元素，返回元素在数组中最后一次出现的索引值。</span><br><span class="line"><span class="function"><span class="title">every</span><span class="params">()</span></span>	测试数组中所有元素是否都通过指定函数的测试。</span><br><span class="line"><span class="function"><span class="title">some</span><span class="params">()</span></span>	测试数组中是否有元素通过指定函数的测试。</span><br><span class="line"><span class="function"><span class="title">forEach</span><span class="params">()</span></span>	让数组每一项都执行一次给定函数。</span><br><span class="line"><span class="function"><span class="title">map</span><span class="params">()</span></span>	对数组中每个元素调用一个指定函数后返回值组成的新数组。</span><br><span class="line"><span class="function"><span class="title">filter</span><span class="params">()</span></span>	使用指定的函数测试所有元素，返回一个包含所有通过测试的元素的新数组。</span><br><span class="line"><span class="function"><span class="title">reduce</span><span class="params">()</span></span>	迭代数组所有项，构建一个最终返回值。</span><br><span class="line"><span class="function"><span class="title">reduceright</span><span class="params">()</span></span>	从最后一项开始向前迭代所有项，构建一个返回值。</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/04/25/javascript/array/" data-id="cjgg88itz000aqotxf4rdvmz6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git/git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/04/25/git/git/" class="article-date">
   <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
 </a>
     
@@ -90,7 +190,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/04/25/git/">Git常用命令与配置</a>
+      <a class="article-title" href="/Blog/2018/04/25/git/git/">Git常用命令与配置</a>
     </h1>
   
 
@@ -99,12 +199,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>一，配置私钥</p>
-<pre><code>git config --global user.name &quot;user&quot;    //设置名字
-git config --global user.email &quot;user@qq.com&quot;  //设置邮箱  
-ssh-keygen -t rsa -C  //三次回车即可生成 ssh key
-ssh-keygen  //不同平台可以使用这个 ssh key
-cat ~/.ssh/id_rsa.pub  //查看你的 public key
-</code></pre><hr>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="selector-class">.name</span> <span class="string">"user"</span>    <span class="comment">//设置名字</span></span><br><span class="line">git config --global user<span class="selector-class">.email</span> <span class="string">"user@qq.com"</span>  <span class="comment">//设置邮箱  </span></span><br><span class="line">ssh-keygen -t rsa -C  <span class="comment">//三次回车即可生成 ssh key</span></span><br><span class="line">ssh-keygen  <span class="comment">//不同平台可以使用这个 ssh key</span></span><br><span class="line">cat ~/.ssh/id_rsa<span class="selector-class">.pub</span>  <span class="comment">//查看你的 public key</span></span><br></pre></td></tr></table></figure>
+<hr>
 <p>二，在gitee，coding，github添加你的key和ssh</p>
 <ul>
 <li>添加方法大同小异 个人 -&gt; 设置 -&gt; SSH 公钥 输入标题，以及public key，确认即可。</li>
@@ -112,31 +208,16 @@ cat ~/.ssh/id_rsa.pub  //查看你的 public key
 <hr>
 <p>三，git和gitee项目关联</p>
 <p>  提交仓库</p>
-<pre><code>git add . //提交所有 
-git add &apos;&apos;  //提交单个
-git commit -m &quot;first&quot;  //提交时候设置的版本号
-git push //提交 git push origin master
-git remote add origin +&quot;仓库地址&quot;
-git remote -v //查询权限
-git push --force origin master //替换当前
-</code></pre><p>  提取仓库</p>
-<pre><code>git clone //第一次拉取代码
-git pull // 拉取代码 
-git fetch --all //下载远程的库
-git reset --hard origin/master //强制与master覆盖
-</code></pre><p>  分支</p>
-<pre><code>git branch &apos;&apos;    //新建分支
-git checkout &apos;&apos;  //切换分支
-git pull    //拉取分支到本地开发
-git branch   //查看当前分支
-git branch -D &apos;&apos; //删除分支
-git add . &amp;&amp; git commit -m &apos;cont&apos; &amp;&amp; git push  //切换到分支,再提交内容，
-git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push 切换到主分支,再合并分支
-</code></pre>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> . <span class="comment">//提交所有 </span></span><br><span class="line">git <span class="keyword">add</span> <span class="string">''</span>  <span class="comment">//提交单个</span></span><br><span class="line">git commit -m <span class="string">"first"</span>  <span class="comment">//提交时候设置的版本号</span></span><br><span class="line">git push <span class="comment">//提交 git push origin master</span></span><br><span class="line">git remote <span class="keyword">add</span> origin +<span class="string">"仓库地址"</span></span><br><span class="line">git remote -v <span class="comment">//查询权限</span></span><br><span class="line">git push --force origin master <span class="comment">//替换当前</span></span><br></pre></td></tr></table></figure>
+<p>  提取仓库</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">//第一次拉取代码</span></span><br><span class="line"><span class="title">git</span> pull // 拉取代码 </span><br><span class="line">git fetch --all //下载远程的库</span><br><span class="line">git reset --hard origin/<span class="keyword">master</span> <span class="title">//强制与master</span>覆盖</span><br></pre></td></tr></table></figure>
+<p>  分支</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch ''    <span class="comment">//新建分支</span></span><br><span class="line">git checkout ''  <span class="comment">//切换分支</span></span><br><span class="line">git pull    <span class="comment">//拉取分支到本地开发</span></span><br><span class="line">git branch   <span class="comment">//查看当前分支</span></span><br><span class="line">git branch -D '' <span class="comment">//删除分支</span></span><br><span class="line">git add . <span class="meta">&amp;&amp; git commit -m 'cont' &amp;&amp; git push  <span class="comment">//切换到分支,再提交内容，</span></span></span><br><span class="line">git checkout master <span class="meta">&amp;&amp; git merge origin/分支名 &amp;&amp; git push 切换到主分支,再合并分支</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/Blog/2018/04/25/git/" data-id="cjgg6bk4l0000jwtxwzf3zq9e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/Blog/2018/04/25/git/git/" data-id="cjgg88iu0000bqotxktvkquaa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Git/">Git</a></li></ul>
@@ -148,9 +229,64 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
 
 
   
-    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript/concat" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Blog/2018/04/25/hexo/" class="article-date">
+    <a href="/Blog/2018/04/25/javascript/concat/" class="article-date">
+  <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/04/25/javascript/concat/">JavaScript Array.prototype.concat()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>concat()方法将传入的值与原数组合并，组成一个新的数组并返回，该方法不会改变调用它的数组。所有浏览器均支持该方法。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.concat(<span class="keyword">value</span><span class="number">1</span>, <span class="keyword">value</span><span class="number">2</span>, ..., valueN)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">value</span><span class="number">1</span>	可选/任意类型添加到当前数组末尾处的数据项。</span><br><span class="line">valueN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>如果参数为空，则返回一个当前数组的浅复制；<br>如果参数为数组类型(Array)，则将该参数数组中的所有元素依次拼接到当前数组的末尾；<br>如果是其他类型，则将其本身作为元素添加到当前数组的末尾处。</p>
+<p><strong>返回值</strong><br>concat()方法的返回值为Array类型，返回由当前数组和其他项组合而成的新数组。concat()方法不会修改调用它的数组，而是将他们的每个元素复制一份放在组合成的新数组中。原数组中的元素有两种被复制的方式：</p>
+<p>对象引用(引用类型数据)：concat()方法会复制对象引用放到组合的新数组中，原数组和新数组中的对象引用都指向同一个实际的对象，所以，当实际的对象被修改时，两个数组也同时会被修改。<br>字符串和数字值类型数据(是原始值，而不是包装原始值的 String 和 Number 对象)：concat() 方法会复制字符串和数字的值放到新数组中。</p>
+<p><strong>示例</strong><br>将两个数组合并为新数组、将元素添加到数组。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">var arr2 = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>];</span><br><span class="line">var arr = arr1.concat(arr2);     // [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"萤光之烛"</span>, <span class="number">2018</span>]  // arr1和arr2不变</span><br><span class="line"></span><br><span class="line">var arr3 = arr1.concat(<span class="string">'javascript'</span>);    // [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"javascript"</span>]</span><br><span class="line">var arrs = [<span class="string">'abc'</span>, <span class="number">2018</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">'萤光之烛'</span>];</span><br><span class="line">var array = arr1.concat(arrs);</span><br><span class="line">// [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"abc"</span>, <span class="number">2018</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="string">"萤光之烛"</span>]  这里拆分数组只拆了一层。</span><br></pre></td></tr></table></figure>
+<p>完全复制(值类型)</p>
+<figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2018</span>, <span class="string">'萤光之烛'</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr.concat();            // [<span class="number">2018</span>, <span class="string">"萤光之烛"</span>, <span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+<p>浅复制(引用类型)</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  domain: '萤光之烛',</span><br><span class="line">  year: 2015</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var arr1 = [1, 2, 3, obj];</span><br><span class="line"></span><br><span class="line">var newresult = arr1.concat();   // [1, 2, 3, Object]</span><br><span class="line">console.log(newresult[3].year)   // 2015</span><br><span class="line"></span><br><span class="line">obj.year = 2018;</span><br><span class="line"></span><br><span class="line">console.log(newresult[3].year)   // 2018</span><br><span class="line"></span><br><span class="line">var arr2 = [1, 2, [11, 22]];</span><br><span class="line">var arr3 = arr2.concat();</span><br><span class="line">arr2[<span class="string">2</span>][<span class="symbol">0</span>] = '萤光之烛';</span><br><span class="line">console.log(arr3[<span class="string">2</span>][<span class="symbol">0</span>])          // 2018</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/04/25/javascript/concat/" data-id="cjgg88iu2000dqotxukuvpl7s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo/hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/04/25/hexo/hexo/" class="article-date">
   <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
 </a>
     
@@ -166,7 +302,7 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Blog/2018/04/25/hexo/">hexo静态资源博客搭建</a>
+      <a class="article-title" href="/Blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
     </h1>
   
 
@@ -175,54 +311,76 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
     <div class="article-entry" itemprop="articleBody">
       
         <p>一，hexo install 安装<br>    安装好Git Nodejs<br>    通过git 安装hexo及常用命令</p>
-<pre><code>npm install hexo -g  //安装Hexo
-hexo -v  //检查hexo是否安装成功
-hexo init &apos;blog&apos;//初始化该文件夹 cd blog
-npm install //安装所需要的组件
-hexo server //开启服务器 简写hexo s
-hexo generate  //生成静态网页 简写hexo g
-hexo deploy //开始部署coding、github  简写hexo d
-hexo s --debug //调试模式
-hexo new title //创建一篇新文章
-hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生成，部署
-</code></pre><hr>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">//安装Hexo</span></span><br><span class="line">hexo -v  <span class="comment">//检查hexo是否安装成功</span></span><br><span class="line">hexo init 'blog'<span class="comment">//初始化该文件夹 cd blog</span></span><br><span class="line">npm install <span class="comment">//安装所需要的组件</span></span><br><span class="line">hexo server <span class="comment">//开启服务器 简写hexo s</span></span><br><span class="line">hexo <span class="keyword">generate</span>  <span class="comment">//生成静态网页 简写hexo g</span></span><br><span class="line">hexo deploy <span class="comment">//开始部署coding、github  简写hexo d</span></span><br><span class="line">hexo s --debug <span class="comment">//调试模式</span></span><br><span class="line">hexo <span class="keyword">new</span> title <span class="comment">//创建一篇新文章</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="keyword">generate</span> &amp;&amp; hexo deploy <span class="comment">//一键清除，生成，部署</span></span><br></pre></td></tr></table></figure>
+<hr>
 <p>二，部署配置</p>
-<pre><code>deploy: //键值 : 后面带空格
-  type: git
-  repo: 
-    github: git@github.com:xxx/Blog.git,master
-    coding: git@git.coding.net:xxx/Blog.git,master 
-</code></pre><hr>
-<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
-<p>至于主题，个人喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
-<pre><code>npm install hexo -g  //安装Hexo
-hexo -v  //检查hexo是否安装成功
-hexo init &apos;blog&apos;//初始化该文件夹 cd blog
-npm install //安装所需要的组件
-hexo server //开启服务器 简写hexo s
-hexo generate  //生成静态网页 简写hexo g
-hexo deploy //开始部署coding、github  简写hexo d
-hexo s --debug //调试模式
-hexo new title //创建一篇新文章
-hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生成，部署
-</code></pre><hr>
-<p>二，部署配置</p>
-<pre><code>deploy: //键值 : 后面带空格
-  type: git
-  repo: 
-    github: git@github.com:xxx/Blog.git,master
-    coding: git@git.coding.net:xxx/Blog.git,master 
-</code></pre><hr>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>: <span class="comment">//键值 : 后面带空格</span></span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: </span><br><span class="line">    <span class="attribute">github</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:xxx/Blog.git,master</span><br><span class="line">    <span class="attribute">coding</span>: git<span class="variable">@git</span>.coding.<span class="attribute">net</span>:xxx/Blog.git,master</span><br></pre></td></tr></table></figure>
+<hr>
 <p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
 <p>至于主题，个人喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/Blog/2018/04/25/hexo/" data-id="cjgg6bk510006jwtxg2zh4isu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/Blog/2018/04/25/hexo/hexo/" data-id="cjgg88iu3000gqotx9efpiqw5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript/join" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/04/25/javascript/join/" class="article-date">
+  <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/04/25/javascript/join/">JavaScript Array.prototype.join()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>concat()方法将传入的值与原数组合并，组成一个新的数组并返回，该方法不会改变调用它的数组。所有浏览器均支持该方法。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.concat(<span class="keyword">value</span><span class="number">1</span>, <span class="keyword">value</span><span class="number">2</span>, ..., valueN)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">value</span><span class="number">1</span>	可选/任意类型添加到当前数组末尾处的数据项。</span><br><span class="line">valueN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>如果参数为空，则返回一个当前数组的浅复制；<br>如果参数为数组类型(Array)，则将该参数数组中的所有元素依次拼接到当前数组的末尾；<br>如果是其他类型，则将其本身作为元素添加到当前数组的末尾处。</p>
+<p><strong>返回值</strong><br>concat()方法的返回值为Array类型，返回由当前数组和其他项组合而成的新数组。concat()方法不会修改调用它的数组，而是将他们的每个元素复制一份放在组合成的新数组中。原数组中的元素有两种被复制的方式：</p>
+<p>对象引用(引用类型数据)：concat()方法会复制对象引用放到组合的新数组中，原数组和新数组中的对象引用都指向同一个实际的对象，所以，当实际的对象被修改时，两个数组也同时会被修改。<br>字符串和数字值类型数据(是原始值，而不是包装原始值的 String 和 Number 对象)：concat() 方法会复制字符串和数字的值放到新数组中。</p>
+<p><strong>示例</strong><br>将两个数组合并为新数组、将元素添加到数组。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">var arr2 = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>];</span><br><span class="line">var arr = arr1.concat(arr2);     // [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"萤光之烛"</span>, <span class="number">2018</span>]  // arr1和arr2不变</span><br><span class="line"></span><br><span class="line">var arr3 = arr1.concat(<span class="string">'javascript'</span>);    // [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"javascript"</span>]</span><br><span class="line">var arrs = [<span class="string">'abc'</span>, <span class="number">2018</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">'萤光之烛'</span>];</span><br><span class="line">var array = arr1.concat(arrs);</span><br><span class="line">// [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"abc"</span>, <span class="number">2018</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="string">"萤光之烛"</span>]  这里拆分数组只拆了一层。</span><br></pre></td></tr></table></figure>
+<p>完全复制(值类型)</p>
+<figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2018</span>, <span class="string">'萤光之烛'</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr.concat();            // [<span class="number">2018</span>, <span class="string">"萤光之烛"</span>, <span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+<p>浅复制(引用类型)</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  domain: '萤光之烛',</span><br><span class="line">  year: 2015</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var arr1 = [1, 2, 3, obj];</span><br><span class="line"></span><br><span class="line">var newresult = arr1.concat();   // [1, 2, 3, Object]</span><br><span class="line">console.log(newresult[3].year)   // 2015</span><br><span class="line"></span><br><span class="line">obj.year = 2018;</span><br><span class="line"></span><br><span class="line">console.log(newresult[3].year)   // 2018</span><br><span class="line"></span><br><span class="line">var arr2 = [1, 2, [11, 22]];</span><br><span class="line">var arr3 = arr2.concat();</span><br><span class="line">arr2[<span class="string">2</span>][<span class="symbol">0</span>] = '萤光之烛';</span><br><span class="line">console.log(arr3[<span class="string">2</span>][<span class="symbol">0</span>])          // 2018</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/04/25/javascript/join/" data-id="cjgg88iub000sqotx78t7s3x6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
 
     </footer>
   </div>
@@ -241,7 +399,7 @@ hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生�
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/">Javascript</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/Array/">Array</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -251,7 +409,7 @@ hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生�
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a>
+      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/Blog/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a>
     </div>
   </div>
 
@@ -260,7 +418,7 @@ hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生�
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -273,11 +431,23 @@ hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生�
       <ul>
         
           <li>
-            <a href="/Blog/2018/04/25/git/">Git常用命令与配置</a>
+            <a href="/Blog/2018/04/25/join/">JavaScript Array.prototype.join()</a>
           </li>
         
           <li>
-            <a href="/Blog/2018/04/25/hexo/">hexo静态资源博客搭建</a>
+            <a href="/Blog/2018/04/25/javascript/array/">JavaScript Array 对象的属性和方法</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/git/git/">Git常用命令与配置</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/javascript/concat/">JavaScript Array.prototype.concat()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
           </li>
         
       </ul>

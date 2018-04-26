@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript Array.prototype.concat() | 萤光之烛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述concat()方法将传入的值与原数组合并，组成一个新的数组并返回，该方法不会改变调用它的数组。所有浏览器均支持该方法。 语法 1array.concat(value1, value2, ..., valueN) 参数 12value1	可选/任意类型添加到当前数组末尾处的数据项。valueN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。 注意：如果参数为空，则返回一个当前数组的">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Array.prototype.concat()">
+<meta property="og:url" content="http://yoursite.com/Blog/2018/04/25/javascript/concat/index.html">
+<meta property="og:site_name" content="萤光之烛">
+<meta property="og:description" content="概述concat()方法将传入的值与原数组合并，组成一个新的数组并返回，该方法不会改变调用它的数组。所有浏览器均支持该方法。 语法 1array.concat(value1, value2, ..., valueN) 参数 12value1	可选/任意类型添加到当前数组末尾处的数据项。valueN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。 注意：如果参数为空，则返回一个当前数组的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-26T07:34:46.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Array.prototype.concat()">
+<meta name="twitter:description" content="概述concat()方法将传入的值与原数组合并，组成一个新的数组并返回，该方法不会改变调用它的数组。所有浏览器均支持该方法。 语法 1array.concat(value1, value2, ..., valueN) 参数 12value1	可选/任意类型添加到当前数组末尾处的数据项。valueN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。 注意：如果参数为空，则返回一个当前数组的">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="萤光之烛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/Blog/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">萤光之烛</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">随心记</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">首页</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">归档</a>
+        
+          <a class="main-nav-link" href="/Blog/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript/concat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/04/25/javascript/concat/" class="article-date">
+  <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript Array.prototype.concat()
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>concat()方法将传入的值与原数组合并，组成一个新的数组并返回，该方法不会改变调用它的数组。所有浏览器均支持该方法。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.concat(<span class="keyword">value</span><span class="number">1</span>, <span class="keyword">value</span><span class="number">2</span>, ..., valueN)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">value</span><span class="number">1</span>	可选/任意类型添加到当前数组末尾处的数据项。</span><br><span class="line">valueN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>如果参数为空，则返回一个当前数组的浅复制；<br>如果参数为数组类型(Array)，则将该参数数组中的所有元素依次拼接到当前数组的末尾；<br>如果是其他类型，则将其本身作为元素添加到当前数组的末尾处。</p>
+<p><strong>返回值</strong><br>concat()方法的返回值为Array类型，返回由当前数组和其他项组合而成的新数组。concat()方法不会修改调用它的数组，而是将他们的每个元素复制一份放在组合成的新数组中。原数组中的元素有两种被复制的方式：</p>
+<p>对象引用(引用类型数据)：concat()方法会复制对象引用放到组合的新数组中，原数组和新数组中的对象引用都指向同一个实际的对象，所以，当实际的对象被修改时，两个数组也同时会被修改。<br>字符串和数字值类型数据(是原始值，而不是包装原始值的 String 和 Number 对象)：concat() 方法会复制字符串和数字的值放到新数组中。</p>
+<p><strong>示例</strong><br>将两个数组合并为新数组、将元素添加到数组。</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">var arr2 = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>];</span><br><span class="line">var arr = arr1.concat(arr2);     // [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"萤光之烛"</span>, <span class="number">2018</span>]  // arr1和arr2不变</span><br><span class="line"></span><br><span class="line">var arr3 = arr1.concat(<span class="string">'javascript'</span>);    // [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"javascript"</span>]</span><br><span class="line">var arrs = [<span class="string">'abc'</span>, <span class="number">2018</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">'萤光之烛'</span>];</span><br><span class="line">var array = arr1.concat(arrs);</span><br><span class="line">// [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">"abc"</span>, <span class="number">2018</span>, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="string">"萤光之烛"</span>]  这里拆分数组只拆了一层。</span><br></pre></td></tr></table></figure>
+<p>完全复制(值类型)</p>
+<figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">2018</span>, <span class="string">'萤光之烛'</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr.concat();            // [<span class="number">2018</span>, <span class="string">"萤光之烛"</span>, <span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+<p>浅复制(引用类型)</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  domain: '萤光之烛',</span><br><span class="line">  year: 2015</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var arr1 = [1, 2, 3, obj];</span><br><span class="line"></span><br><span class="line">var newresult = arr1.concat();   // [1, 2, 3, Object]</span><br><span class="line">console.log(newresult[3].year)   // 2015</span><br><span class="line"></span><br><span class="line">obj.year = 2018;</span><br><span class="line"></span><br><span class="line">console.log(newresult[3].year)   // 2018</span><br><span class="line"></span><br><span class="line">var arr2 = [1, 2, [11, 22]];</span><br><span class="line">var arr3 = arr2.concat();</span><br><span class="line">arr2[<span class="string">2</span>][<span class="symbol">0</span>] = '萤光之烛';</span><br><span class="line">console.log(arr3[<span class="string">2</span>][<span class="symbol">0</span>])          // 2018</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/04/25/javascript/concat/" data-id="cjgg88iu2000dqotxukuvpl7s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2018/04/25/git/git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git常用命令与配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2018/04/25/hexo/hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo静态资源博客搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/">Javascript</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/Array/">Array</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/Blog/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2018/04/25/join/">JavaScript Array.prototype.join()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/javascript/array/">JavaScript Array 对象的属性和方法</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/git/git/">Git常用命令与配置</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/javascript/concat/">JavaScript Array.prototype.concat()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ChauncyTang 个人博客
+      Powered by <a href="/">萤光之烛</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/Blog/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
