@@ -1071,7 +1071,7 @@ a.article-title:hover {
   -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
   text-align: center;
-  border-top: 20px solid #eee;
+  border-top: 20px solid #d7ded7;
   color: #000;
 }
 #footer a {

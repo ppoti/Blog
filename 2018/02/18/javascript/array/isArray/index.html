@@ -7,18 +7,18 @@
   
   <title>JavaScript Array.prototype.isArray() | 萤光之烛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="勤是能补拙，要选对行业，还要选对放向。">
+  <meta name="description" content="概述Array.isArray()方法用来判断某个值是否为数组。如果是，返回 true，否则返回 false。 语法 1Array.isArray(value) 参数 1value	任意类型需要被检测的值。 返回值 Array.isArray()方法的返回值为Boolean类型，被检测的值为数组返回 true，不是数组返回 false。 示例 123456789101112131415161718">
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Array.prototype.isArray()">
 <meta property="og:url" content="http://yoursite.com/Blog/2018/02/18/javascript/array/isArray/index.html">
 <meta property="og:site_name" content="萤光之烛">
-<meta property="og:description" content="勤是能补拙，要选对行业，还要选对放向。">
+<meta property="og:description" content="概述Array.isArray()方法用来判断某个值是否为数组。如果是，返回 true，否则返回 false。 语法 1Array.isArray(value) 参数 1value	任意类型需要被检测的值。 返回值 Array.isArray()方法的返回值为Boolean类型，被检测的值为数组返回 true，不是数组返回 false。 示例 123456789101112131415161718">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-26T09:06:05.435Z">
+<meta property="og:updated_time" content="2018-04-26T10:09:34.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Array.prototype.isArray()">
-<meta name="twitter:description" content="勤是能补拙，要选对行业，还要选对放向。">
+<meta name="twitter:description" content="概述Array.isArray()方法用来判断某个值是否为数组。如果是，返回 true，否则返回 false。 语法 1Array.isArray(value) 参数 1value	任意类型需要被检测的值。 返回值 Array.isArray()方法的返回值为Boolean类型，被检测的值为数组返回 true，不是数组返回 false。 示例 123456789101112131415161718">
   
     <link rel="alternate" href="/Blog/atom.xml" title="萤光之烛" type="application/atom+xml">
   
@@ -97,11 +97,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><strong>概述</strong><br>Array.isArray()方法用来判断某个值是否为数组。如果是，返回 true，否则返回 false。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.<span class="built_in">isArray</span>(value)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">value</span>	任意类型需要被检测的值。</span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong></p>
+<p>Array.isArray()方法的返回值为Boolean类型，被检测的值为数组返回 true，不是数组返回 false。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面的函数调用都返回 true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]);</span><br><span class="line"><span class="built_in">Array</span>.isArray([<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="keyword">new</span> <span class="built_in">Array</span>());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鲜为人知的事实：其实 Array.prototype 也是一个数组。</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面的函数调用都返回 false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray();</span><br><span class="line"><span class="built_in">Array</span>.isArray(&#123;&#125;);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="number">17</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="string">'Array'</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">false</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(&#123; <span class="attr">__proto__</span>: <span class="built_in">Array</span>.prototype &#125;);</span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">把下面的代码插入到脚本的开头来解决低级IE的兼容。</span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.isArray = <span class="function"><span class="keyword">function</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arg) === <span class="string">'[object Array]'</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/Blog/2018/02/18/javascript/array/isArray/" data-id="cjggb06p4000jd0txsdmsanio" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/Blog/2018/02/18/javascript/array/isArray/" data-id="cjggej7lc000ngktx51p44zrh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
