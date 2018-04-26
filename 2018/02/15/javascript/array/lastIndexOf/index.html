@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript Array.prototype.lastIndexOf() | 萤光之烛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述lastIndexOf()方法用于查找给定元素在当前数组中最后一次出现的位置。 语法 1array.lastIndexOf(searchElement, fromIndex) 参数 12searchElement	任意类型要在数组中查找的元素。fromIndex	可选/Number类型 指定从数组中开始查找的索引位置。 注意：lastIndexOf()方法将从后向前查找给定元素，并返回给定元素">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Array.prototype.lastIndexOf()">
+<meta property="og:url" content="http://yoursite.com/Blog/2018/02/15/javascript/array/lastIndexOf/index.html">
+<meta property="og:site_name" content="萤光之烛">
+<meta property="og:description" content="概述lastIndexOf()方法用于查找给定元素在当前数组中最后一次出现的位置。 语法 1array.lastIndexOf(searchElement, fromIndex) 参数 12searchElement	任意类型要在数组中查找的元素。fromIndex	可选/Number类型 指定从数组中开始查找的索引位置。 注意：lastIndexOf()方法将从后向前查找给定元素，并返回给定元素">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-26T09:03:03.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Array.prototype.lastIndexOf()">
+<meta name="twitter:description" content="概述lastIndexOf()方法用于查找给定元素在当前数组中最后一次出现的位置。 语法 1array.lastIndexOf(searchElement, fromIndex) 参数 12searchElement	任意类型要在数组中查找的元素。fromIndex	可选/Number类型 指定从数组中开始查找的索引位置。 注意：lastIndexOf()方法将从后向前查找给定元素，并返回给定元素">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="萤光之烛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/Blog/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">萤光之烛</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">随心记</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">首页</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">归档</a>
+        
+          <a class="main-nav-link" href="/Blog/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript/array/lastIndexOf" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/02/15/javascript/array/lastIndexOf/" class="article-date">
+  <time datetime="2018-02-15T02:17:53.000Z" itemprop="datePublished">2018-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript Array.prototype.lastIndexOf()
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>lastIndexOf()方法用于查找给定元素在当前数组中最后一次出现的位置。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.lastIndexOf(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchElement	任意类型要在数组中查找的元素。</span><br><span class="line">fromIndex	可选/<span class="built_in">Number</span>类型 指定从数组中开始查找的索引位置。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>lastIndexOf()方法将从后向前查找给定元素，并返回给定元素第一次出现的位置。因为是从后向前搜索，第一次出现的位置就是该元素在当前数组中最后一次出现的位置。</p>
+<p>如果不指定 fromIndex 值，则从最后一个元素开始搜索整个数组。<br>如果 fromIndex 的值大于数组长度，则意味查找整个数组，从最后一个元素开始搜索整个数组。<br>如果 fromIndex 为负值，则表示从数组中的倒数第几个元素开始查找，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。即使该值为负，数组仍然会被从后向前查找。为负值时可视为length + start，此处length为数组的长度。<br>如果length + start仍然为负，则意味数组不会被查找，返回 -1。</p>
+<p><strong>返回值</strong></p>
+<p>lastIndexOf()方法的返回值为Number类型，返回给定元素在数组中最后一次被查找到的索引值，如果没有找到则返回 -1 。</p>
+<p>注意：<br>lastIndexOf()方法使用严格等于(“===”)判断 searchElement与数组中元素之间的等于关系。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var array = [2, 5, 9, 2];</span><br><span class="line">var <span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>);    // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">7</span>);        // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">-1</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">3</span>);     // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">2</span>);     // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">-2</span>);    // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">-1</span>);    // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>使用lastIndexOf()查找到一个元素在数组中所有的索引，并使用push()将所有添加到另一个数组中</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> indices = [];</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">array</span> = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'a'</span>, <span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">var</span> element = <span class="string">'a'</span>;</span><br><span class="line"><span class="keyword">var</span> idx = <span class="keyword">array</span>.lastIndexOf(element);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (idx != <span class="number">-1</span>) &#123;</span><br><span class="line">  indices.push(idx);</span><br><span class="line">  idx = (idx &gt; <span class="number">0</span> ? <span class="keyword">array</span>.lastIndexOf(element, idx - <span class="number">1</span>) : <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(indices);</span><br><span class="line"><span class="comment">// [4, 2, 0];</span></span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.lastIndexOf) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.prototype.lastIndexOf = <span class="function"><span class="keyword">function</span>(<span class="params">searchElement <span class="regexp">/*, fromIndex*/</span></span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> === <span class="keyword">void</span> <span class="number">0</span> || <span class="keyword">this</span> === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> n, k,</span><br><span class="line">        t = <span class="built_in">Object</span>(<span class="keyword">this</span>),</span><br><span class="line">        len = t.length &gt;&gt;&gt; <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (len === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    n = len - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      n = <span class="built_in">Number</span>(<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">      <span class="keyword">if</span> (n != n) &#123;</span><br><span class="line">        n = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (n != <span class="number">0</span> &amp;&amp; n != (<span class="number">1</span> / <span class="number">0</span>) &amp;&amp; n != -(<span class="number">1</span> / <span class="number">0</span>)) &#123;</span><br><span class="line">        n = (n &gt; <span class="number">0</span> || <span class="number">-1</span>) * <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.abs(n));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (k = n &gt;= <span class="number">0</span></span><br><span class="line">          ? <span class="built_in">Math</span>.min(n, len - <span class="number">1</span>)</span><br><span class="line">          : len - <span class="built_in">Math</span>.abs(n); k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (k <span class="keyword">in</span> t &amp;&amp; t[k] === searchElement) &#123;</span><br><span class="line">        <span class="keyword">return</span> k;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/02/15/javascript/array/lastIndexOf/" data-id="cjggazdsc000pkgtxarbgjvwa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2018/02/16/javascript/array/map/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript Array.prototype.map()
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2018/02/14/javascript/array/forEach/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript Array.prototype.forEach()</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/">Javascript</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/Array/">Array</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/Blog/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">二月 2018</a><span class="archive-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2018/04/25/git/git/">Git常用命令与配置</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/02/21/javascript/array/some/">JavaScript Array.prototype.some()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/02/20/javascript/array/reduceRight/">JavaScript Array.prototype.reduceRight()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/02/19/javascript/array/reduce/">JavaScript Array.prototype.reduce()</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ChauncyTang 个人博客
+      Powered by <a href="/">萤光之烛</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/Blog/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

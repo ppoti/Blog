@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JavaScript Array.prototype.slice() | 萤光之烛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述slice()方法把数组中一部分(连续的一段)提取复制到一个新的数组中，并返回这个新的数组。 语法 1array.slice(start, end) 参数 12start	Number类型从该索引处 (包含该索引元素) 开始提取原数组中元素。end	可选/Number类型在该索引处 (不包含该索引元素) 结束提取原数组中元素。 注意: 如果 start 为负，则表示从原数组中的倒数第几个元素开">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Array.prototype.slice()">
+<meta property="og:url" content="http://yoursite.com/Blog/2018/02/08/javascript/array/slice/index.html">
+<meta property="og:site_name" content="萤光之烛">
+<meta property="og:description" content="概述slice()方法把数组中一部分(连续的一段)提取复制到一个新的数组中，并返回这个新的数组。 语法 1array.slice(start, end) 参数 12start	Number类型从该索引处 (包含该索引元素) 开始提取原数组中元素。end	可选/Number类型在该索引处 (不包含该索引元素) 结束提取原数组中元素。 注意: 如果 start 为负，则表示从原数组中的倒数第几个元素开">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-26T08:14:18.727Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Array.prototype.slice()">
+<meta name="twitter:description" content="概述slice()方法把数组中一部分(连续的一段)提取复制到一个新的数组中，并返回这个新的数组。 语法 1array.slice(start, end) 参数 12start	Number类型从该索引处 (包含该索引元素) 开始提取原数组中元素。end	可选/Number类型在该索引处 (不包含该索引元素) 结束提取原数组中元素。 注意: 如果 start 为负，则表示从原数组中的倒数第几个元素开">
+  
+    <link rel="alternate" href="/Blog/atom.xml" title="萤光之烛" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/Blog/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Blog/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Blog/" id="logo">萤光之烛</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/Blog/" id="subtitle">随心记</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Blog/">首页</a>
+        
+          <a class="main-nav-link" href="/Blog/archives">归档</a>
+        
+          <a class="main-nav-link" href="/Blog/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com/Blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript/array/slice" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/02/08/javascript/array/slice/" class="article-date">
+  <time datetime="2018-02-08T03:22:21.000Z" itemprop="datePublished">2018-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/Javascript/">Javascript</a>►<a class="article-category-link" href="/Blog/categories/Javascript/Array/">Array</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript Array.prototype.slice()
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>slice()方法把数组中一部分(连续的一段)提取复制到一个新的数组中，并返回这个新的数组。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.slice(<span class="keyword">start</span>, <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span>	<span class="built_in">Number</span>类型从该索引处 (包含该索引元素) 开始提取原数组中元素。</span><br><span class="line"><span class="keyword">end</span>	可选/<span class="built_in">Number</span>类型在该索引处 (不包含该索引元素) 结束提取原数组中元素。</span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<p>如果 start 为负，则表示从原数组中的倒数第几个元素开始提取，也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。为负时可视为length + start，此处length为数组的长度。<br>如果 end 为负，则表示从原数组中的倒数第几个元素结束提取，同上可视为length + end，此处length为数组的长度。<br>如果 end 被省略，则slice()会一直提取到原数组末尾。即end = length。<br>如果 end &lt;= start，则不会提取任何元素复制到新数组中，返回一个空数组。<br>如果 start和end 同时被省略，则从原数组索引 0 到最后一个元素完整提取，相当于浅复制整个数组。</p>
+<p><strong>返回值</strong></p>
+<p>slice()方法的返回值为Array类型, 返回当前数组中索引 start (包含索引 start 元素) 到索引 end (不包括索引 end 元素)部分的元素组成的数组。<br>slice()方法不会改变调用它的数组。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr = ['萤光之烛', <span class="number">2018</span>, true, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取索引 1 , 3 的部分(不包括索引0,2)</span></span><br><span class="line">console.log(arr.slice(<span class="number">1</span>,<span class="number">3</span>))       <span class="comment">// [2018, true]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// start 为负  等价于 -3 + length = 1</span></span><br><span class="line">console.log(arr.slice(<span class="number">-3</span>,<span class="number">3</span>))      <span class="comment">// [2018, true]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略 end</span></span><br><span class="line">console.log(arr.slice(<span class="number">1</span>))         <span class="comment">// [2018, true, 1234]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//end &lt;= start 时返回空数组</span></span><br><span class="line">console.log(arr.slice(<span class="number">3</span>,<span class="number">2</span>))       <span class="comment">// []</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数</span></span><br><span class="line">console.log(arr.slice())          <span class="comment">// ["萤光之烛", 2018, true, 1234]</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/02/08/javascript/array/slice/" data-id="cjggazdsr001jkgtxhreniilm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Javascript/">Javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Blog/2018/02/09/javascript/array/sort/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript Array.prototype.sort()
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2018/02/07/javascript/array/shift/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript Array.prototype.shift()</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/">Javascript</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Javascript/Array/">Array</a><span class="category-list-count">21</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/Blog/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/02/">二月 2018</a><span class="archive-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Blog/2018/04/25/git/git/">Git常用命令与配置</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/02/21/javascript/array/some/">JavaScript Array.prototype.some()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/02/20/javascript/array/reduceRight/">JavaScript Array.prototype.reduceRight()</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/02/19/javascript/array/reduce/">JavaScript Array.prototype.reduce()</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 ChauncyTang 个人博客
+      Powered by <a href="/">萤光之烛</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Blog/" class="mobile-nav-link">首页</a>
+  
+    <a href="/Blog/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/Blog/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Blog/fancybox/jquery.fancybox.css">
+  <script src="/Blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
