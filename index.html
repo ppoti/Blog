@@ -106,14 +106,12 @@ ssh-keygen  //不同平台可以使用这个 ssh key
 cat ~/.ssh/id_rsa.pub  //查看你的 public key
 </code></pre><hr>
 <p>二，在gitee，coding，github添加你的key和ssh</p>
-<blockquote>
-<p>添加方法大同小异<br>个人 -&gt; 设置 -&gt; SSH 公钥<br>输入标题，以及public key，确认即可。</p>
-</blockquote>
+<ul>
+<li>添加方法大同小异 个人 -&gt; 设置 -&gt; SSH 公钥 输入标题，以及public key，确认即可。</li>
+</ul>
 <hr>
 <p>三，git和gitee项目关联</p>
-<blockquote>
-<p>提交仓库</p>
-</blockquote>
+<p>  提交仓库</p>
 <pre><code>git add . //提交所有 
 git add &apos;&apos;  //提交单个
 git commit -m &quot;first&quot;  //提交时候设置的版本号
@@ -121,16 +119,12 @@ git push //提交 git push origin master
 git remote add origin +&quot;仓库地址&quot;
 git remote -v //查询权限
 git push --force origin master //替换当前
-</code></pre><blockquote>
-<p>提取仓库</p>
-</blockquote>
+</code></pre><p>  提取仓库</p>
 <pre><code>git clone //第一次拉取代码
 git pull // 拉取代码 
 git fetch --all //下载远程的库
 git reset --hard origin/master //强制与master覆盖
-</code></pre><blockquote>
-<p>分支</p>
-</blockquote>
+</code></pre><p>  分支</p>
 <pre><code>git branch &apos;&apos;    //新建分支
 git checkout &apos;&apos;  //切换分支
 git pull    //拉取分支到本地开发
@@ -142,10 +136,93 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/Blog/2018/04/25/git/" data-id="cjgg5jje30001wstx57yym6sz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/Blog/2018/04/25/git/" data-id="cjgg6bk4l0000jwtxwzf3zq9e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Blog/2018/04/25/hexo/" class="article-date">
+  <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Blog/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Blog/2018/04/25/hexo/">hexo静态资源博客搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一，hexo install 安装<br>    安装好Git Nodejs<br>    通过git 安装hexo及常用命令</p>
+<pre><code>npm install hexo -g  //安装Hexo
+hexo -v  //检查hexo是否安装成功
+hexo init &apos;blog&apos;//初始化该文件夹 cd blog
+npm install //安装所需要的组件
+hexo server //开启服务器 简写hexo s
+hexo generate  //生成静态网页 简写hexo g
+hexo deploy //开始部署coding、github  简写hexo d
+hexo s --debug //调试模式
+hexo new title //创建一篇新文章
+hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生成，部署
+</code></pre><hr>
+<p>二，部署配置</p>
+<pre><code>deploy: //键值 : 后面带空格
+  type: git
+  repo: 
+    github: git@github.com:xxx/Blog.git,master
+    coding: git@git.coding.net:xxx/Blog.git,master 
+</code></pre><hr>
+<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
+<p>至于主题，个人喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
+<pre><code>npm install hexo -g  //安装Hexo
+hexo -v  //检查hexo是否安装成功
+hexo init &apos;blog&apos;//初始化该文件夹 cd blog
+npm install //安装所需要的组件
+hexo server //开启服务器 简写hexo s
+hexo generate  //生成静态网页 简写hexo g
+hexo deploy //开始部署coding、github  简写hexo d
+hexo s --debug //调试模式
+hexo new title //创建一篇新文章
+hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生成，部署
+</code></pre><hr>
+<p>二，部署配置</p>
+<pre><code>deploy: //键值 : 后面带空格
+  type: git
+  repo: 
+    github: git@github.com:xxx/Blog.git,master
+    coding: git@git.coding.net:xxx/Blog.git,master 
+</code></pre><hr>
+<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
+<p>至于主题，个人喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/Blog/2018/04/25/hexo/" data-id="cjgg6bk510006jwtxg2zh4isu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/hexo/">hexo</a></li></ul>
 
     </footer>
   </div>
@@ -164,7 +241,7 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/Blog/categories/hexo/">hexo</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -174,7 +251,7 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a>
+      <a href="/Blog/tags/Git/" style="font-size: 10px;">Git</a> <a href="/Blog/tags/hexo/" style="font-size: 10px;">hexo</a>
     </div>
   </div>
 
@@ -183,7 +260,7 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Blog/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -197,6 +274,10 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
         
           <li>
             <a href="/Blog/2018/04/25/git/">Git常用命令与配置</a>
+          </li>
+        
+          <li>
+            <a href="/Blog/2018/04/25/hexo/">hexo静态资源博客搭建</a>
           </li>
         
       </ul>

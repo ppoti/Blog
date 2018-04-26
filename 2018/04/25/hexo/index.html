@@ -5,20 +5,20 @@
   
 
   
-  <title>Git常用命令与配置 | 萤光之烛</title>
+  <title>hexo静态资源博客搭建 | 萤光之烛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一，配置私钥 git config --global user.name &amp;quot;user&amp;quot;    //设置名字 git config --global user.email &amp;quot;user@qq.com&amp;quot;  //设置邮箱   ssh-keygen -t rsa -C  //三次回车即可生成 ssh key ssh-keygen  //不同平台可以使用这个 ssh k">
-<meta name="keywords" content="Git">
+  <meta name="description" content="一，hexo install 安装    安装好Git Nodejs    通过git 安装hexo及常用命令 npm install hexo -g  //安装Hexo hexo -v  //检查hexo是否安装成功 hexo init &amp;apos;blog&amp;apos;//初始化该文件夹 cd blog npm install //安装所需要的组件 hexo server //开启服务器 简写h">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git常用命令与配置">
-<meta property="og:url" content="http://yoursite.com/Blog/2018/04/25/git/index.html">
+<meta property="og:title" content="hexo静态资源博客搭建">
+<meta property="og:url" content="http://yoursite.com/Blog/2018/04/25/hexo/index.html">
 <meta property="og:site_name" content="萤光之烛">
-<meta property="og:description" content="一，配置私钥 git config --global user.name &amp;quot;user&amp;quot;    //设置名字 git config --global user.email &amp;quot;user@qq.com&amp;quot;  //设置邮箱   ssh-keygen -t rsa -C  //三次回车即可生成 ssh key ssh-keygen  //不同平台可以使用这个 ssh k">
+<meta property="og:description" content="一，hexo install 安装    安装好Git Nodejs    通过git 安装hexo及常用命令 npm install hexo -g  //安装Hexo hexo -v  //检查hexo是否安装成功 hexo init &amp;apos;blog&amp;apos;//初始化该文件夹 cd blog npm install //安装所需要的组件 hexo server //开启服务器 简写h">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-26T06:54:54.242Z">
+<meta property="og:updated_time" content="2018-04-26T06:54:22.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git常用命令与配置">
-<meta name="twitter:description" content="一，配置私钥 git config --global user.name &amp;quot;user&amp;quot;    //设置名字 git config --global user.email &amp;quot;user@qq.com&amp;quot;  //设置邮箱   ssh-keygen -t rsa -C  //三次回车即可生成 ssh key ssh-keygen  //不同平台可以使用这个 ssh k">
+<meta name="twitter:title" content="hexo静态资源博客搭建">
+<meta name="twitter:description" content="一，hexo install 安装    安装好Git Nodejs    通过git 安装hexo及常用命令 npm install hexo -g  //安装Hexo hexo -v  //检查hexo是否安装成功 hexo init &amp;apos;blog&amp;apos;//初始化该文件夹 cd blog npm install //安装所需要的组件 hexo server //开启服务器 简写h">
   
     <link rel="alternate" href="/Blog/atom.xml" title="萤光之烛" type="application/atom+xml">
   
@@ -71,14 +71,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Blog/2018/04/25/git/" class="article-date">
+    <a href="/Blog/2018/04/25/hexo/" class="article-date">
   <time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished">2018-04-25</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/Blog/categories/Git/">Git</a>
+    <a class="article-category-link" href="/Blog/categories/hexo/">hexo</a>
   </div>
 
   </div>
@@ -89,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Git常用命令与配置
+      hexo静态资源博客搭建
     </h1>
   
 
@@ -97,48 +97,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一，配置私钥</p>
-<pre><code>git config --global user.name &quot;user&quot;    //设置名字
-git config --global user.email &quot;user@qq.com&quot;  //设置邮箱  
-ssh-keygen -t rsa -C  //三次回车即可生成 ssh key
-ssh-keygen  //不同平台可以使用这个 ssh key
-cat ~/.ssh/id_rsa.pub  //查看你的 public key
+        <p>一，hexo install 安装<br>    安装好Git Nodejs<br>    通过git 安装hexo及常用命令</p>
+<pre><code>npm install hexo -g  //安装Hexo
+hexo -v  //检查hexo是否安装成功
+hexo init &apos;blog&apos;//初始化该文件夹 cd blog
+npm install //安装所需要的组件
+hexo server //开启服务器 简写hexo s
+hexo generate  //生成静态网页 简写hexo g
+hexo deploy //开始部署coding、github  简写hexo d
+hexo s --debug //调试模式
+hexo new title //创建一篇新文章
+hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生成，部署
 </code></pre><hr>
-<p>二，在gitee，coding，github添加你的key和ssh</p>
-<ul>
-<li>添加方法大同小异 个人 -&gt; 设置 -&gt; SSH 公钥 输入标题，以及public key，确认即可。</li>
-</ul>
-<hr>
-<p>三，git和gitee项目关联</p>
-<p>  提交仓库</p>
-<pre><code>git add . //提交所有 
-git add &apos;&apos;  //提交单个
-git commit -m &quot;first&quot;  //提交时候设置的版本号
-git push //提交 git push origin master
-git remote add origin +&quot;仓库地址&quot;
-git remote -v //查询权限
-git push --force origin master //替换当前
-</code></pre><p>  提取仓库</p>
-<pre><code>git clone //第一次拉取代码
-git pull // 拉取代码 
-git fetch --all //下载远程的库
-git reset --hard origin/master //强制与master覆盖
-</code></pre><p>  分支</p>
-<pre><code>git branch &apos;&apos;    //新建分支
-git checkout &apos;&apos;  //切换分支
-git pull    //拉取分支到本地开发
-git branch   //查看当前分支
-git branch -D &apos;&apos; //删除分支
-git add . &amp;&amp; git commit -m &apos;cont&apos; &amp;&amp; git push  //切换到分支,再提交内容，
-git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push 切换到主分支,再合并分支
-</code></pre>
+<p>二，部署配置</p>
+<pre><code>deploy: //键值 : 后面带空格
+  type: git
+  repo: 
+    github: git@github.com:xxx/Blog.git,master
+    coding: git@git.coding.net:xxx/Blog.git,master 
+</code></pre><hr>
+<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
+<p>至于主题，个人喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
+<pre><code>npm install hexo -g  //安装Hexo
+hexo -v  //检查hexo是否安装成功
+hexo init &apos;blog&apos;//初始化该文件夹 cd blog
+npm install //安装所需要的组件
+hexo server //开启服务器 简写hexo s
+hexo generate  //生成静态网页 简写hexo g
+hexo deploy //开始部署coding、github  简写hexo d
+hexo s --debug //调试模式
+hexo new title //创建一篇新文章
+hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy //一键清除，生成，部署
+</code></pre><hr>
+<p>二，部署配置</p>
+<pre><code>deploy: //键值 : 后面带空格
+  type: git
+  repo: 
+    github: git@github.com:xxx/Blog.git,master
+    coding: git@git.coding.net:xxx/Blog.git,master 
+</code></pre><hr>
+<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
+<p>至于主题，个人喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/Blog/2018/04/25/git/" data-id="cjgg6bk4l0000jwtxwzf3zq9e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/Blog/2018/04/25/hexo/" data-id="cjgg6bk510006jwtxg2zh4isu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/Git/">Git</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Blog/tags/hexo/">hexo</a></li></ul>
 
     </footer>
   </div>
@@ -146,11 +153,15 @@ git checkout master &amp;&amp; git merge origin/分支名 &amp;&amp; git push �
     
 <nav id="article-nav">
   
-  
-    <a href="/Blog/2018/04/25/hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">hexo静态资源博客搭建</div>
+    <a href="/Blog/2018/04/25/git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git常用命令与配置
+        
+      </div>
     </a>
+  
   
 </nav>
 
