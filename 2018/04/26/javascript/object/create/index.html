@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="萤光之烛">
 <meta property="og:description" content="简单方式  可以直接通过 new Object() 创建：12345678910var per2=new Object();per2.name=&quot;大蛇丸&quot;;per2.age=30;per2.sex=&quot;男&quot;;per2.eat=function () &amp;#123;  console.log(&quot;吃榴莲&quot;);&amp;#125;;per2.play=function () &amp;#123;  console.lo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ppoti.xin/2018/04/26/javascript/object/create/images/javascript/三者之间的关系.png">
-<meta property="og:updated_time" content="2018-05-09T07:20:17.277Z">
+<meta property="og:image" content="https://ppoti.xin/2018/04/26/javascript/object/create/prototype.png">
+<meta property="og:updated_time" content="2018-05-09T07:41:57.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object 对象的创建">
 <meta name="twitter:description" content="简单方式  可以直接通过 new Object() 创建：12345678910var per2=new Object();per2.name=&quot;大蛇丸&quot;;per2.age=30;per2.sex=&quot;男&quot;;per2.eat=function () &amp;#123;  console.log(&quot;吃榴莲&quot;);&amp;#125;;per2.play=function () &amp;#123;  console.lo">
-<meta name="twitter:image" content="https://ppoti.xin/2018/04/26/javascript/object/create/images/javascript/三者之间的关系.png">
+<meta name="twitter:image" content="https://ppoti.xin/2018/04/26/javascript/object/create/prototype.png">
   
     <link rel="alternative" href="/atom.xml" title="萤光之烛" type="application/atom+xml">
   
@@ -307,7 +307,8 @@ var _hmt = _hmt || [];
 <p>这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 <code>prototype</code> 对象上。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype)</span><br><span class="line"></span><br><span class="line">Person.prototype.type = <span class="string">'human'</span></span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(...)</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> Person(...)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p1.sayName === p2.sayName) <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
 <p>这时所有实例的 <code>type</code> 属性和 <code>sayName()</code> 方法，<br>其实都是同一个内存地址，指向 <code>prototype</code> 对象，因此就提高了运行效率。</p>
-<p><strong>构造函数、实例、原型三者之间的关系</strong><br><img src="images/javascript/三者之间的关系.png" alt=""></p>
+<p><strong>构造函数、实例、原型三者之间的关系</strong></p>
+<p><img src="/2018/04/26/javascript/object/create/prototype.png" alt="logo"></p>
 <p>任何函数都具有一个 <code>prototype</code> 属性，该属性是一个对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(F.prototype) <span class="comment">// =&gt; object</span></span><br><span class="line"></span><br><span class="line">F.prototype.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi!'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>构造函数的 <code>prototype</code> 对象默认都有一个 <code>constructor</code> 属性，指向 <code>prototype</code> 对象所在函数。</p>
@@ -522,8 +523,8 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
   
-    <a href="/2018/04/25/hexo/hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo静态资源博客搭建</div>
+    <a href="/2018/04/25/git/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git常用命令与配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -659,11 +660,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
