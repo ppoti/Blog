@@ -164,6 +164,264 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript/array/shift" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/07/javascript/array/shift/">shift()删除数组第一个元素</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/07/javascript/array/shift/" class="archive-article-date">
+  	<time datetime="2018-02-07T09:42:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>shift()方法用于从当前数组中移除第一个元素，并返回被移除的元素。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.shift()</span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong><br>shift()方法的返回值为任意类型，返回被移除的元素。如果该数组为空，则不改变这个空数组，返回undefined。</p>
+<p>本方法会移除数组中的第一个元素，数组的length属性也会随之减 1 (如果数组中有元素的话)。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="literal">true</span>, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = arr.shift();</span><br><span class="line"><span class="built_in">console</span>.log(result);    <span class="comment">// 萤光之烛</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);       <span class="comment">// [2018, true, 1234]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emptArray = [];</span><br><span class="line"><span class="keyword">var</span> res = emptArray.shift();</span><br><span class="line"><span class="built_in">console</span>.log(res);       <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p><code>`</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/07/javascript/array/shift/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/reverse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/06/javascript/array/reverse/">reverse()颠倒数组中元素的顺序</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/06/javascript/array/reverse/" class="archive-article-date">
+  	<time datetime="2018-02-06T10:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>reverse()方法用于将当前数组的元素顺序全部反转，并返回元素顺序反转后的数组。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.<span class="keyword">reverse</span>()</span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong><br>reverse()方法的返回值为Array类型，返回元素顺序被反转后的数组对象。</p>
+<p>reverse()方法将当前数组对象中的元素按所在位置进行反转。在执行过程中，此方法并不创建新的Array对象，而是直接在当前对象上进行反转。返回的数组对象就是经过顺序反转后的当前对象。</p>
+<p>如果数组是不连续的，reverse()方法将在数组中创建元素，这些元素将填充数组中的间隙。所创建的这些元素的值全部为undefined。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">var</span> <span class="built_in">array</span> = ['萤光之烛', <span class="number">2018</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="built_in">var</span> res = <span class="built_in">array</span>.<span class="built_in">reverse</span>();</span><br><span class="line">console.<span class="built_in">log</span>(res);             // [<span class="literal">true</span>, <span class="number">2018</span>, '萤光之烛']</span><br><span class="line">console.<span class="built_in">log</span>(res === <span class="built_in">array</span>);   // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p><code>`</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/06/javascript/array/reverse/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/push" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/05/javascript/array/push/">push()末尾添加元素</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/05/javascript/array/push/" class="archive-article-date">
+  	<time datetime="2018-02-05T04:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>push()方法用于向当前数组添加一个或多个元素，并返回添加元素后数组的长度。新元素会依次添加到数组的末尾</p>
+<p><strong>语法</strong></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>.push(element1, <span class="params">...</span>, elementN)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">element1</span>	任意类型添加到当前数组末尾处的元素。</span><br><span class="line">elementN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>如果添加的元素类型为数组类型(Array)，仍然会被当作一个元素看待。如果要合并两个数组，请使用concat()方法。</p>
+<p><strong>返回值</strong><br>push()方法的返回值为Number类型，返回添加元素后数组的长度。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = arr.push(<span class="string">'萤光'</span>, <span class="string">'之烛'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);   <span class="regexp">// 4</span></span><br><span class="line"><span class="regexp">console.log(arr);      //</span> [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="string">'萤光'</span>, <span class="string">'之烛'</span>]</span><br></pre></td></tr></table></figure>
+<p><code>`</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/05/javascript/array/push/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-javascript/array/pop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,26 +464,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -304,26 +551,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -405,26 +641,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -465,7 +690,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/01/javascript/array/array/">JavaScript Array 对象的属性和方法</a>
+      <a class="article-title" href="/2018/02/01/javascript/array/array/">Array 对象的属性和方法</a>
     </h1>
   
 
@@ -499,26 +724,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -649,15 +863,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS对象</a>
               </li>
             
             <div class="clearfix"></div>

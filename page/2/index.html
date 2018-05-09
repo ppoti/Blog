@@ -164,6 +164,287 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-javascript/array/indexOf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/17/javascript/array/indexOf/">indexOf()查找元素第一次的索引</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/17/javascript/array/indexOf/" class="archive-article-date">
+  	<time datetime="2018-02-17T03:34:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>indexOf()方法用于查找给定元素在当前数组中第一次出现的位置。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.indexOf(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchElement	任意类型要在数组中查找的元素。</span><br><span class="line">fromIndex	可选/<span class="built_in">Number</span>类型 指定从数组中开始查找的索引位置。</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>如果 fromIndex 的值大于数组长度，则意味不在数组中查找，返回 -1。<br>如果 fromIndex 为负值，则表示从数组中的倒数第几个元素开始查找，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。为负值时可视为length + start，此处length为数组的长度。</p>
+<p><strong>返回值</strong></p>
+<p>indexOf()方法的返回值为Number类型，返回给定元素在数组中第一次被查找到的索引值，如果没有找到则返回 -1 。</p>
+<p>注意：<br>indexOf()方法使用严格等于(“===”)判断 searchElement 与数组中元素之间的等于关系。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var array = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line">array.indexOf(<span class="number">2</span>);       <span class="comment">// 0</span></span><br><span class="line">array.indexOf(<span class="number">7</span>);       <span class="comment">// -1</span></span><br><span class="line">array.indexOf(<span class="number">9</span>, <span class="number">2</span>);    <span class="comment">// 2</span></span><br><span class="line">array.indexOf(<span class="number">2</span>, <span class="number">-1</span>);   <span class="comment">// -1</span></span><br><span class="line">array.indexOf(<span class="number">2</span>, <span class="number">-3</span>);   <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">把下面的代码插入到脚本的开头来解决低级IE的兼容。</span><br><span class="line"><span class="comment">// Production steps of ECMA-262, Edition 5, 15.4.4.14</span></span><br><span class="line"><span class="comment">// Reference: http://es5.github.io/#x15.4.4.14</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.indexOf) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">searchElement, fromIndex</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> k;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. Let O be the result of calling ToObject passing</span></span><br><span class="line">    <span class="comment">//    the this value as the argument.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'"this" is null or not defined'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> O = <span class="built_in">Object</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. Let lenValue be the result of calling the Get</span></span><br><span class="line">    <span class="comment">//    internal method of O with the argument "length".</span></span><br><span class="line">    <span class="comment">// 3. Let len be ToUint32(lenValue).</span></span><br><span class="line">    <span class="keyword">var</span> len = O.length &gt;&gt;&gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. If len is 0, return -1.</span></span><br><span class="line">    <span class="keyword">if</span> (len === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. If argument fromIndex was passed let n be</span></span><br><span class="line">    <span class="comment">//    ToInteger(fromIndex); else let n be 0.</span></span><br><span class="line">    <span class="keyword">var</span> n = +fromIndex || <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(n) === <span class="literal">Infinity</span>) &#123;</span><br><span class="line">      n = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. If n &gt;= len, return -1.</span></span><br><span class="line">    <span class="keyword">if</span> (n &gt;= len) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 7. If n &gt;= 0, then Let k be n.</span></span><br><span class="line">    <span class="comment">// 8. Else, n&lt;0, Let k be len - abs(n).</span></span><br><span class="line">    <span class="comment">//    If k is less than 0, then let k be 0.</span></span><br><span class="line">    k = <span class="built_in">Math</span>.max(n &gt;= <span class="number">0</span> ? n : len - <span class="built_in">Math</span>.abs(n), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 9. Repeat, while k &lt; len</span></span><br><span class="line">    <span class="keyword">while</span> (k &lt; len) &#123;</span><br><span class="line">      <span class="comment">// a. Let Pk be ToString(k).</span></span><br><span class="line">      <span class="comment">//   This is implicit for LHS operands of the in operator</span></span><br><span class="line">      <span class="comment">// b. Let kPresent be the result of calling the</span></span><br><span class="line">      <span class="comment">//    HasProperty internal method of O with argument Pk.</span></span><br><span class="line">      <span class="comment">//   This step can be combined with c</span></span><br><span class="line">      <span class="comment">// c. If kPresent is true, then</span></span><br><span class="line">      <span class="comment">//    i.  Let elementK be the result of calling the Get</span></span><br><span class="line">      <span class="comment">//        internal method of O with the argument ToString(k).</span></span><br><span class="line">      <span class="comment">//   ii.  Let same be the result of applying the</span></span><br><span class="line">      <span class="comment">//        Strict Equality Comparison Algorithm to</span></span><br><span class="line">      <span class="comment">//        searchElement and elementK.</span></span><br><span class="line">      <span class="comment">//  iii.  If same is true, return k.</span></span><br><span class="line">      <span class="keyword">if</span> (k <span class="keyword">in</span> O &amp;&amp; O[k] === searchElement) &#123;</span><br><span class="line">        <span class="keyword">return</span> k;</span><br><span class="line">      &#125;</span><br><span class="line">      k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/17/javascript/array/indexOf/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/16/javascript/array/map/">map()返回新数组</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/16/javascript/array/map/" class="archive-article-date">
+  	<time datetime="2018-02-16T05:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>map()方法返回一个由原数组中每个元素执行给定函数的返回值组成的新数组。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>.<span class="built_in">map</span>(callback, thisArg)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">callback	<span class="built_in">Function</span>类型对每个数组元素执行的回调函数。</span><br><span class="line">thisArg	可选/<span class="built_in">Object</span>类型 指定回调函数内部的<span class="keyword">this</span>指向。</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>map()方法中的 callback 回调函数默认支持 3 个参数，第 1 个是遍历的数组元素、第2个是元素对应的索引、第3个是数组本身。<br>如果为map()提供一个 thisArg 参数，该参数为调用 callback 时的 this 值。如果省略该参数，则 callback 被调用时的 this 值，在非严格模式下为全局对象，在严格模式下传入undefined。</p>
+<p>map()的 callback 函数需要有返回值，这些返回值组成新数组作为map()方法的返回值。如果回调函数没有返回值，则视为返回undefined。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = arr.map(<span class="keyword">function</span>(item)&#123; <span class="built_in">console</span>.log(item) &#125;);</span><br><span class="line"><span class="regexp">//打印 0 1 2 3 4 5 //</span> arr1为[<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>]</span><br></pre></td></tr></table></figure>
+<p>callback只会在已经赋值的索引上执行，对于那些已经被删除或者从未被赋值的索引不会执行。请看下面示例：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr)   <span class="regexp">//</span>  [<span class="number">1</span>, <span class="number">2</span>, <span class="literal">undefined</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line">arr.map(function(item)&#123; <span class="keyword">return</span> Boolean(item) &#125;)  <span class="regexp">//</span> [<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">undefined</span> × <span class="number">1</span>, <span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">true</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong></p>
+<p>map()方法的返回值为Array类型，对数组中的每个元素都按顺序执行一次 callback 函数，将每次执行 callback 的返回值组成一个新数组。这个新书组就是map()方法的返回值。</p>
+<p>map()不会改变原数组。</p>
+<p>map()遍历的元素的范围在第一次调用 callback 时就已经确定了。在调用map()后被添加到数组中的值不会被 callback 访问到。如果数组中存在的元素被更改，则他们传入 callback 的值是map()访问到他们那一刻的值。那些被删除的元素或从来未被赋值的元素将不会被访问到。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对数组中每个元素求平方</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arrayOSquares = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123; <span class="keyword">return</span> item * item &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arrayOSquares)       <span class="comment">// [1, 25, 64, 9, 16]</span></span><br></pre></td></tr></table></figure>
+<p>一般情况下，map()方法中的 callback 函数只需要接受一个参数，就是正在被遍历的数组元素本身。但这并不意味着map()只给 callback 传了一个参数。这个思维惯性可能会让我们犯一个很容易犯的错误。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>].<span class="built_in">map</span>(<span class="built_in">parseInt</span>);</span><br><span class="line"><span class="comment">// 你可能觉的会是 [1, 2, 3]</span></span><br><span class="line"><span class="comment">// 但实际的结果是 [1, NaN, NaN]</span></span><br></pre></td></tr></table></figure>
+<p>通常使用parseInt()方法时，只需要传递一个参数。但实际上parseInt()可以有两个参数。第二个参数是进制数。可以通过语句”alert(parseInt.length)===2”来验证。map()方法在调用 callback 函数时，会给它传递三个参数：当前正在遍历的元素, 元素索引, 原数组本身。第三个参数parseInt()会忽视, 但第二个参数不会，也就是说，parseInt()把传过来的索引值当成进制数来使用。从而返回了NaN。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"1"</span>,<span class="number">0</span>)   <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"2"</span>,<span class="number">1</span>)   <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"3"</span>,<span class="number">2</span>)   <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line">[<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="string">"3"</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">parseInt</span>(item, <span class="number">10</span>) &#125;);</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现 ECMA-262, Edition 5, 15.4.4.19</span></span><br><span class="line"><span class="comment">// 参考: http://es5.github.com/#x15.4.4.19</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.map) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.prototype.map = <span class="function"><span class="keyword">function</span>(<span class="params">callback, thisArg</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> T, A, k;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">" this is null or not defined"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 将O赋值为调用map方法的数组.</span></span><br><span class="line">    <span class="keyword">var</span> O = <span class="built_in">Object</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.将len赋值为数组O的长度.</span></span><br><span class="line">    <span class="keyword">var</span> len = O.length &gt;&gt;&gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.如果callback不是函数,则抛出TypeError异常.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(callback) != <span class="string">"[object Function]"</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(callback + <span class="string">" is not a function"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 如果参数thisArg有值,则将T赋值为thisArg;否则T为undefined.</span></span><br><span class="line">    <span class="keyword">if</span> (thisArg) &#123;</span><br><span class="line">      T = thisArg;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 创建新数组A,长度为原数组O长度len</span></span><br><span class="line">    A = <span class="keyword">new</span> <span class="built_in">Array</span>(len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 6. 将k赋值为0</span></span><br><span class="line">    k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 7. 当 k &lt; len 时,执行循环.</span></span><br><span class="line">    <span class="keyword">while</span>(k &lt; len) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> kValue, mappedValue;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//遍历O,k为原数组索引</span></span><br><span class="line">      <span class="keyword">if</span> (k <span class="keyword">in</span> O) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//kValue为索引k对应的值.</span></span><br><span class="line">        kValue = O[ k ];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行callback,this指向T,参数有三个.分别是kValue:值,k:索引,O:原数组.</span></span><br><span class="line">        mappedValue = callback.call(T, kValue, k, O);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回值添加到新数组A中.</span></span><br><span class="line">        A[ k ] = mappedValue;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// k自增1</span></span><br><span class="line">      k++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 8. 返回新数组A</span></span><br><span class="line">    <span class="keyword">return</span> A;</span><br><span class="line">  &#125;;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/16/javascript/array/map/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/lastIndexOf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/15/javascript/array/lastIndexOf/">lastIndexOf()查找元素最后一次的索引</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/15/javascript/array/lastIndexOf/" class="archive-article-date">
+  	<time datetime="2018-02-15T02:17:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>lastIndexOf()方法用于查找给定元素在当前数组中最后一次出现的位置。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.lastIndexOf(searchElement, fromIndex)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">searchElement	任意类型要在数组中查找的元素。</span><br><span class="line">fromIndex	可选/<span class="built_in">Number</span>类型 指定从数组中开始查找的索引位置。</span><br></pre></td></tr></table></figure>
+<p>注意：<br>lastIndexOf()方法将从后向前查找给定元素，并返回给定元素第一次出现的位置。因为是从后向前搜索，第一次出现的位置就是该元素在当前数组中最后一次出现的位置。</p>
+<p>如果不指定 fromIndex 值，则从最后一个元素开始搜索整个数组。<br>如果 fromIndex 的值大于数组长度，则意味查找整个数组，从最后一个元素开始搜索整个数组。<br>如果 fromIndex 为负值，则表示从数组中的倒数第几个元素开始查找，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。即使该值为负，数组仍然会被从后向前查找。为负值时可视为length + start，此处length为数组的长度。<br>如果length + start仍然为负，则意味数组不会被查找，返回 -1。</p>
+<p><strong>返回值</strong></p>
+<p>lastIndexOf()方法的返回值为Number类型，返回给定元素在数组中最后一次被查找到的索引值，如果没有找到则返回 -1 。</p>
+<p>注意：<br>lastIndexOf()方法使用严格等于(“===”)判断 searchElement与数组中元素之间的等于关系。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var array = [2, 5, 9, 2];</span><br><span class="line">var <span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>);    // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">7</span>);        // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">-1</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">3</span>);     // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">3</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">2</span>);     // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">-2</span>);    // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">index</span> = <span class="keyword">array</span>.lastIndexOf(<span class="number">2</span>, <span class="number">-1</span>);    // <span class="keyword">index</span> <span class="keyword">is</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>使用lastIndexOf()查找到一个元素在数组中所有的索引，并使用push()将所有添加到另一个数组中</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> indices = [];</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">array</span> = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'a'</span>, <span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">var</span> element = <span class="string">'a'</span>;</span><br><span class="line"><span class="keyword">var</span> idx = <span class="keyword">array</span>.lastIndexOf(element);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (idx != <span class="number">-1</span>) &#123;</span><br><span class="line">  indices.push(idx);</span><br><span class="line">  idx = (idx &gt; <span class="number">0</span> ? <span class="keyword">array</span>.lastIndexOf(element, idx - <span class="number">1</span>) : <span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(indices);</span><br><span class="line"><span class="comment">// [4, 2, 0];</span></span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.prototype.lastIndexOf) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.prototype.lastIndexOf = <span class="function"><span class="keyword">function</span>(<span class="params">searchElement <span class="regexp">/*, fromIndex*/</span></span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> === <span class="keyword">void</span> <span class="number">0</span> || <span class="keyword">this</span> === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> n, k,</span><br><span class="line">        t = <span class="built_in">Object</span>(<span class="keyword">this</span>),</span><br><span class="line">        len = t.length &gt;&gt;&gt; <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (len === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    n = len - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      n = <span class="built_in">Number</span>(<span class="built_in">arguments</span>[<span class="number">1</span>]);</span><br><span class="line">      <span class="keyword">if</span> (n != n) &#123;</span><br><span class="line">        n = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (n != <span class="number">0</span> &amp;&amp; n != (<span class="number">1</span> / <span class="number">0</span>) &amp;&amp; n != -(<span class="number">1</span> / <span class="number">0</span>)) &#123;</span><br><span class="line">        n = (n &gt; <span class="number">0</span> || <span class="number">-1</span>) * <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.abs(n));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (k = n &gt;= <span class="number">0</span></span><br><span class="line">          ? <span class="built_in">Math</span>.min(n, len - <span class="number">1</span>)</span><br><span class="line">          : len - <span class="built_in">Math</span>.abs(n); k &gt;= <span class="number">0</span>; k--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (k <span class="keyword">in</span> t &amp;&amp; t[k] === searchElement) &#123;</span><br><span class="line">        <span class="keyword">return</span> k;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/15/javascript/array/lastIndexOf/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-javascript/array/forEach" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -218,26 +499,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -333,11 +603,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
+        			<a href="/categories/JS数组方法//" class="article-tag-list-link color2">JS数组方法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
+        			<a href="/categories/JS数组方法/Array//" class="article-tag-list-link color1">Array</a>
         		</li>
       		
 		</ul>
@@ -428,26 +698,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -524,26 +783,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -623,26 +871,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -727,26 +964,15 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -826,321 +1052,19 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/02/08/javascript/array/slice/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript/array/shift" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/07/javascript/array/shift/">shift()删除数组第一个元素</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/07/javascript/array/shift/" class="archive-article-date">
-  	<time datetime="2018-02-07T09:42:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概述</strong><br>shift()方法用于从当前数组中移除第一个元素，并返回被移除的元素。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.shift()</span><br></pre></td></tr></table></figure>
-<p><strong>返回值</strong><br>shift()方法的返回值为任意类型，返回被移除的元素。如果该数组为空，则不改变这个空数组，返回undefined。</p>
-<p>本方法会移除数组中的第一个元素，数组的length属性也会随之减 1 (如果数组中有元素的话)。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="literal">true</span>, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = arr.shift();</span><br><span class="line"><span class="built_in">console</span>.log(result);    <span class="comment">// 萤光之烛</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);       <span class="comment">// [2018, true, 1234]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emptArray = [];</span><br><span class="line"><span class="keyword">var</span> res = emptArray.shift();</span><br><span class="line"><span class="built_in">console</span>.log(res);       <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-<p><code>`</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/07/javascript/array/shift/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript/array/reverse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/06/javascript/array/reverse/">reverse()颠倒数组中元素的顺序</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/06/javascript/array/reverse/" class="archive-article-date">
-  	<time datetime="2018-02-06T10:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概述</strong><br>reverse()方法用于将当前数组的元素顺序全部反转，并返回元素顺序反转后的数组。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.<span class="keyword">reverse</span>()</span><br></pre></td></tr></table></figure>
-<p><strong>返回值</strong><br>reverse()方法的返回值为Array类型，返回元素顺序被反转后的数组对象。</p>
-<p>reverse()方法将当前数组对象中的元素按所在位置进行反转。在执行过程中，此方法并不创建新的Array对象，而是直接在当前对象上进行反转。返回的数组对象就是经过顺序反转后的当前对象。</p>
-<p>如果数组是不连续的，reverse()方法将在数组中创建元素，这些元素将填充数组中的间隙。所创建的这些元素的值全部为undefined。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">var</span> <span class="built_in">array</span> = ['萤光之烛', <span class="number">2018</span>, <span class="literal">true</span>];</span><br><span class="line"><span class="built_in">var</span> res = <span class="built_in">array</span>.<span class="built_in">reverse</span>();</span><br><span class="line">console.<span class="built_in">log</span>(res);             // [<span class="literal">true</span>, <span class="number">2018</span>, '萤光之烛']</span><br><span class="line">console.<span class="built_in">log</span>(res === <span class="built_in">array</span>);   // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><code>`</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/06/javascript/array/reverse/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript/array/push" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/05/javascript/array/push/">push()末尾添加元素</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/05/javascript/array/push/" class="archive-article-date">
-  	<time datetime="2018-02-05T04:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概述</strong><br>push()方法用于向当前数组添加一个或多个元素，并返回添加元素后数组的长度。新元素会依次添加到数组的末尾</p>
-<p><strong>语法</strong></p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>.push(element1, <span class="params">...</span>, elementN)</span><br></pre></td></tr></table></figure>
-<p><strong>参数</strong></p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">element1</span>	任意类型添加到当前数组末尾处的元素。</span><br><span class="line">elementN	可选/任意类型要添加到当前数组末尾处的其他项，可以有多个。</span><br></pre></td></tr></table></figure>
-<p>注意：<br>如果添加的元素类型为数组类型(Array)，仍然会被当作一个元素看待。如果要合并两个数组，请使用concat()方法。</p>
-<p><strong>返回值</strong><br>push()方法的返回值为Number类型，返回添加元素后数组的长度。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = arr.push(<span class="string">'萤光'</span>, <span class="string">'之烛'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);   <span class="regexp">// 4</span></span><br><span class="line"><span class="regexp">console.log(arr);      //</span> [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="string">'萤光'</span>, <span class="string">'之烛'</span>]</span><br></pre></td></tr></table></figure>
-<p><code>`</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Javascript/Array//" class="article-tag-list-link color1">Array</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/05/javascript/array/push/">展开全文 >></a>
         </p>
       
 
@@ -1267,15 +1191,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JS对象</a>
               </li>
             
             <div class="clearfix"></div>
