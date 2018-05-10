@@ -72,10 +72,6 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-            
-    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -159,6 +155,305 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-javascript/array/splice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/02/10/javascript/array/splice/">splice()移除/替换数组</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/02/10/javascript/array/splice/" class="archive-article-date">
+  	<time datetime="2018-02-10T01:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-10</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>splice()方法用于从当前数组中移除一部分连续的元素。如有需要，还可以在所移除元素的位置上插入一个或多个新的元素。该方法以数组形式返回当前数组中被移除的元素</p>
+<p><strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">array</span><span class="selector-class">.splice</span>(<span class="selector-tag">start</span>, <span class="selector-tag">deleteCount</span>, <span class="selector-tag">item1</span>, <span class="selector-tag">item2</span>,..<span class="selector-class">.itemN</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">start</span>	<span class="keyword">Number</span>类型从数组中移除元素操作的起点索引。</span><br><span class="line">deleteCount	<span class="keyword">Number</span>类型需要移除的元素个数。</span><br><span class="line">itemN	可选/任意类型要添加到数组中元素被移除位置的新元素，可以有多个。</span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<p>splice()方法从索引 start 开始，移除 deleteCount 个元素(包含 start 索引元素)，在 start 索引处插入 itemN 。</p>
+<p>如果 start &gt;= length ，则不会移除任何元素，返回一个空数组。<br>如果 start 是负值，则表示从数组的倒数第几位开始移除元素。可视为 length + start，此处length为数组的长度。<br>如果 deleteCount 为 0 或负数，则不会移除任何元素，返回一个空数组。<br>如果参数 itemN 为数组类型(Array)，仍会被当作一个元素看待，插入到当前数组中。</p>
+<p><strong>返回值</strong></p>
+<p>splice()方法的返回值为Array类型，返回当前数组中被移除的元素所组成的新数组。<br>当移除数组中的元素时，数组的length属性也会随之改变。一般而言，数组的length属性将会减N(N为实际移除的元素个数)。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="literal">true</span>, <span class="number">1234</span>, <span class="number">-1024</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从索引 2 开始，移除 3 个元素</span></span><br><span class="line"><span class="keyword">var</span> res = arr.splice(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);          <span class="comment">// ["萤光之烛", 2018, 10] </span></span><br><span class="line"><span class="built_in">console</span>.log(res);          <span class="comment">// [true, 1234, -1024]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从索引 1 开始，移除 2 个元素，插入两个元素</span></span><br><span class="line"><span class="keyword">var</span> res1 = arr.splice(<span class="number">1</span>, <span class="number">2</span>, <span class="string">'newitem1'</span>, <span class="string">'newitem2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);          <span class="comment">// ["萤光之烛", "newitem1", "newitem2"] </span></span><br><span class="line"><span class="built_in">console</span>.log(res1);         <span class="comment">// [2018, 10]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从索引 1 开始，移除 0 个元素，插入两个元素</span></span><br><span class="line"><span class="keyword">var</span> res2 = arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">'abc'</span>, <span class="string">'xyz'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);          <span class="comment">// ["萤光之烛", "abc", "xyz", "newitem1", "newitem2"]        </span></span><br><span class="line"><span class="built_in">console</span>.log(res2);         <span class="comment">// 返回空数组 []</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/02/10/javascript/array/splice/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/02/09/javascript/array/sort/">sort()数组排序</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/02/09/javascript/array/sort/" class="archive-article-date">
+  	<time datetime="2018-02-09T01:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-09</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>sort()方法用于将当前数组对象的元素按指定顺序进行排序，并返回排序后的数组。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>.<span class="built_in">sort</span>(compareFunction)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compareFunction	可选/<span class="function"><span class="keyword">Function</span></span>类型指定如何比较元素顺序的函数。</span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<p>如果省略compareFunction参数，元素将按ASCII字符顺序的升序进行排列。<br>如果提供了compareFunction参数，那么数组会按照调用该函数的返回值排序。记 a 和 b 是两个将要被比较的元素：</p>
+<p>如果 compareFunction(a, b) 小于 0 ， a 会被排列到 b 之前；<br>如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变；<br>如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。<br>sort()方法对数组如何排序完全取决于compareFunction函数，例如对数组[1,4,3,2,5] 排序。<br>升序，小的在前大的在后：compareFunction(a, b){return a-b}<br>降序，大的在前小的在后：compareFunction(a, b){return b-a}</p>
+<p><strong>返回值</strong></p>
+<p>sort()方法的返回值为Array类型，返回排序后的数组对象。<br>在排序过程中，并不会创建新的数组对象，返回的数组对象就是经过排序后的当前数组本身。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="literal">true</span>, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照ASCII字符顺序进行升序排列</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.sort());               <span class="comment">// [1234, 2018, "萤光之烛", true]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">12</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">14</span>];</span><br><span class="line"><span class="comment">//  升序排列</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareNumbers</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr1.sort(compareNumbers)) <span class="comment">// [2, 3, 5, 8, 12, 14]</span></span><br></pre></td></tr></table></figure>
+<p>sort()方法可以使用函数表达式方便地书写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(numbers);         <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line">numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> b - a;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(numbers);         <span class="comment">// [5, 4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure>
+<p>对象可以按照某个属性排序</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var items = [</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Edward'</span>, <span class="keyword">value</span>: <span class="number">21</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Sharpe'</span>, <span class="keyword">value</span>: <span class="number">37</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'And'</span>, <span class="keyword">value</span>: <span class="number">45</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'The'</span>, <span class="keyword">value</span>: -<span class="number">12</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Magnetic'</span> , <span class="keyword">value</span>: <span class="number">99</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Zeros'</span>, <span class="keyword">value</span>: <span class="number">37</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">items.sort(<span class="function"><span class="keyword">function</span></span> (a, b) &#123;</span><br><span class="line">  <span class="keyword">if</span> (a.<span class="keyword">value</span> &gt; b.<span class="keyword">value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (a.<span class="keyword">value</span> &lt; b.<span class="keyword">value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// <span class="number">0</span> : &#123;<span class="keyword">name</span>: <span class="string">"The"</span>, <span class="keyword">value</span>: -<span class="number">12</span>&#125;</span><br><span class="line">// <span class="number">1</span> : &#123;<span class="keyword">name</span>: <span class="string">"Edward"</span>, <span class="keyword">value</span>: <span class="number">21</span>&#125;</span><br><span class="line">// <span class="number">2</span> : &#123;<span class="keyword">name</span>: <span class="string">"Sharpe"</span>, <span class="keyword">value</span>: <span class="number">37</span>&#125;</span><br><span class="line">// <span class="number">3</span> : &#123;<span class="keyword">name</span>: <span class="string">"Zeros"</span>, <span class="keyword">value</span>: <span class="number">37</span>&#125;</span><br><span class="line">// <span class="number">4</span> : &#123;<span class="keyword">name</span>: <span class="string">"And"</span>, <span class="keyword">value</span>: <span class="number">45</span>&#125;</span><br><span class="line">// <span class="number">5</span> : &#123;<span class="keyword">name</span>: <span class="string">"Magnetic"</span>, <span class="keyword">value</span>: <span class="number">99</span>&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/02/09/javascript/array/sort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/slice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/02/08/javascript/array/slice/">slice()提取数组子元素</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/02/08/javascript/array/slice/" class="archive-article-date">
+  	<time datetime="2018-02-08T03:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>slice()方法把数组中一部分(连续的一段)提取复制到一个新的数组中，并返回这个新的数组。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.slice(<span class="keyword">start</span>, <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span>	<span class="built_in">Number</span>类型从该索引处 (包含该索引元素) 开始提取原数组中元素。</span><br><span class="line"><span class="keyword">end</span>	可选/<span class="built_in">Number</span>类型在该索引处 (不包含该索引元素) 结束提取原数组中元素。</span><br></pre></td></tr></table></figure>
+<p>注意:</p>
+<p>如果 start 为负，则表示从原数组中的倒数第几个元素开始提取，也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。为负时可视为length + start，此处length为数组的长度。<br>如果 end 为负，则表示从原数组中的倒数第几个元素结束提取，同上可视为length + end，此处length为数组的长度。<br>如果 end 被省略，则slice()会一直提取到原数组末尾。即end = length。<br>如果 end &lt;= start，则不会提取任何元素复制到新数组中，返回一个空数组。<br>如果 start和end 同时被省略，则从原数组索引 0 到最后一个元素完整提取，相当于浅复制整个数组。</p>
+<p><strong>返回值</strong></p>
+<p>slice()方法的返回值为Array类型, 返回当前数组中索引 start (包含索引 start 元素) 到索引 end (不包括索引 end 元素)部分的元素组成的数组。<br>slice()方法不会改变调用它的数组。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr = ['萤光之烛', <span class="number">2018</span>, true, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取索引 1 , 3 的部分(不包括索引0,2)</span></span><br><span class="line">console.log(arr.slice(<span class="number">1</span>,<span class="number">3</span>))       <span class="comment">// [2018, true]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// start 为负  等价于 -3 + length = 1</span></span><br><span class="line">console.log(arr.slice(<span class="number">-3</span>,<span class="number">3</span>))      <span class="comment">// [2018, true]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略 end</span></span><br><span class="line">console.log(arr.slice(<span class="number">1</span>))         <span class="comment">// [2018, true, 1234]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//end &lt;= start 时返回空数组</span></span><br><span class="line">console.log(arr.slice(<span class="number">3</span>,<span class="number">2</span>))       <span class="comment">// []</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数</span></span><br><span class="line">console.log(arr.slice())          <span class="comment">// ["萤光之烛", 2018, true, 1234]</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/02/08/javascript/array/slice/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-javascript/array/shift" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -897,25 +1192,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -936,11 +1223,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1002,26 +1289,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="https://baidu.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>百度</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://google.com.hk" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>谷歌</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://ying.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>必应</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     

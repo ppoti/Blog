@@ -72,10 +72,6 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-            
-    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -159,6 +155,328 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-javascript/array/reduceRight" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/02/20/javascript/array/reduceRight/">reduceRight()倒序迭代</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/02/20/javascript/array/reduceRight/" class="archive-article-date">
+  	<time datetime="2018-02-20T03:31:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-20</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>reduceRight()方法对数组中的每个元素（从右到左）开始执行给定函数，构建一个最终返回值。。reduceRight()方法和reduce()的执行方向相反。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.reduceRight(callback, initialValue)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">callback	<span class="function"><span class="keyword">Function</span></span>类型对每个数组元素执行的回调函数。</span><br><span class="line">initialValue	可选/任意类型作为首次调用 callback 的第一个参数。</span><br></pre></td></tr></table></figure>
+<p>reduceRight()方法中的 callback 回调函数默认支持 4 个参数。</p>
+<p>第 1 个(previousValue)： 上一次执行 callback 的返回值；<br>第 2 个(currentValue): 数组中当前被处理的元素；<br>第 3 个(index)： 当前被处理元素的索引值；<br>第 4 个(array)： 调用reduceRight()方法的数组本身。</p>
+<p>首次执行 callback 函数时，如果指定了 initialValue ，则使用 initialValue 作为 callback 的第一个参数(previousValue)，数组中最后一个元素作为第二个参数(currentValue)；如果没指定 initialValue，则用数组的最后一个元素作为 previousValue，倒数第二个元素作为 currentValue。</p>
+<p>如果数组为空并且没有提供 initialValue， 会抛出TypeError。如果数组仅有一个元素（无论位置如何）并且没有提供 initialValue， 或者有提供 initialValue 但是数组为空，那么此唯一值将被返回并且callback不会被执行。</p>
+<p>callback只会在已经赋值的索引上执行，对于那些已经被删除或者从未被赋值的索引不会执行。请看下面示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">//  [1, 2, undefined, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line">arr.reduceRight(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur</span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">String</span>(pre) + <span class="built_in">String</span>(cur) &#125;)  <span class="comment">// "65421"</span></span><br></pre></td></tr></table></figure>
+<p>每次的参数和返回值如下表：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">迭代历程	  previous current index       array            return value</span><br><span class="line">第<span class="number">1</span>次调用     <span class="number">6</span>         <span class="number">5</span>     <span class="number">5</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">65</span></span><br><span class="line">第<span class="number">2</span>次调用     <span class="number">65</span>        <span class="number">4</span>     <span class="number">3</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">654</span></span><br><span class="line">第<span class="number">3</span>次调用     <span class="number">654</span>       <span class="number">2</span>     <span class="number">1</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">6542</span></span><br><span class="line">第<span class="number">4</span>次调用     <span class="number">6542</span>      <span class="number">1</span>     <span class="number">0</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">65421</span></span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong></p>
+<p>reduceRight()方法的返回值为任意类型，从数组的最后一项开始，逐个遍历到第一个，由 callback 回调函数构建一个最终返回值。</p>
+<p>reduceRight()不会改变原数组。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> total = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].reduceRight(<span class="function"><span class="keyword">function</span><span class="params">(a, b)</span> </span>&#123; <span class="keyword">return</span> a + b &#125;);     <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">迭代历程	  previous current index   array  return value</span><br><span class="line">第<span class="number">1</span>次调用     <span class="number">4</span>         <span class="number">3</span>     <span class="number">3</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">7</span></span><br><span class="line">第<span class="number">2</span>次调用     <span class="number">7</span>         <span class="number">2</span>     <span class="number">2</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">9</span></span><br><span class="line">第<span class="number">3</span>次调用     <span class="number">9</span>         <span class="number">1</span>     <span class="number">1</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">10</span></span><br><span class="line">第<span class="number">4</span>次调用     <span class="number">10</span>        <span class="number">0</span>     <span class="number">0</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>给reduceRight()传入第二个参数 10 。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var total = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].reduceRight(function(a, b) &#123; return a + b &#125;, <span class="number">10</span>); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">迭代历程	  previous current index   array   return value</span><br><span class="line">第<span class="number">1</span>次调用     <span class="number">10</span>         <span class="number">4</span>     <span class="number">4</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">14</span></span><br><span class="line">第<span class="number">2</span>次调用     <span class="number">14</span>         <span class="number">3</span>     <span class="number">3</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">17</span></span><br><span class="line">第<span class="number">3</span>次调用     <span class="number">17</span>         <span class="number">2</span>     <span class="number">2</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">19</span></span><br><span class="line">第<span class="number">4</span>次调用     <span class="number">19</span>         <span class="number">1</span>     <span class="number">1</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">20</span></span><br><span class="line">第<span class="number">5</span>次调用     <span class="number">20</span>         <span class="number">0</span>     <span class="number">0</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<p>将数组扁平化。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var flattened = <span class="string">[[0, 1], [2, 3], [4, 5]]</span>.reduceRight(<span class="function"><span class="keyword">function</span><span class="params">(a, b)</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">concat</span>(b);</span><br><span class="line">&#125;);</span><br><span class="line">// flattened 为 [<span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">迭代历程  previousValue  currentValue  index  	array  		      return value</span><br><span class="line">第<span class="number">1</span>次调用    [<span class="number">4</span>, <span class="number">5</span>]         [<span class="number">2</span>, <span class="number">3</span>]       <span class="number">1</span>   [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]]  [<span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">第<span class="number">2</span>次调用  [<span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>]     [<span class="number">0</span>, <span class="number">1</span>]       <span class="number">0</span>   [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]]  [<span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">把下面的代码插入到脚本的开头来解决低级IE的兼容。</span><br><span class="line"><span class="keyword">if</span> ( <span class="string">'function'</span> !== <span class="keyword">typeof</span> <span class="built_in">Array</span>.prototype.reduceRight ) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.prototype.reduceRight = <span class="function"><span class="keyword">function</span>(<span class="params"> callback <span class="regexp">/*, initialValue*/</span> </span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="literal">null</span> === <span class="keyword">this</span> || <span class="string">'undefined'</span> === <span class="keyword">typeof</span> <span class="keyword">this</span> ) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(</span><br><span class="line">         <span class="string">'Array.prototype.reduce called on null or undefined'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="string">'function'</span> !== <span class="keyword">typeof</span> callback ) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>( callback + <span class="string">' is not a function'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> t = <span class="built_in">Object</span>( <span class="keyword">this</span> ), len = t.length &gt;&gt;&gt; <span class="number">0</span>, k = len - <span class="number">1</span>, value;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">arguments</span>.length &gt;= <span class="number">2</span> ) &#123;</span><br><span class="line">      value = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">while</span> ( k &gt;= <span class="number">0</span> &amp;&amp; ! k <span class="keyword">in</span> t ) k--;</span><br><span class="line">      <span class="keyword">if</span> ( k &lt; <span class="number">0</span> )</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Reduce of empty array with no initial value'</span>);</span><br><span class="line">      value = t[ k-- ];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( ; k &gt;= <span class="number">0</span> ; k-- ) &#123;</span><br><span class="line">      <span class="keyword">if</span> ( k <span class="keyword">in</span> t ) &#123;</span><br><span class="line">         value = callback( value, t[k], k, t );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/02/20/javascript/array/reduceRight/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/reduce" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/02/19/javascript/array/reduce/">reduce()迭代数组</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/02/19/javascript/array/reduce/" class="archive-article-date">
+  	<time datetime="2018-02-19T08:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-19</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>reduce()方法对数组中的每个元素（从左到右）开始执行给定函数，构建一个最终返回值。reduce()是所有数组方法中最为复杂的一个。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight golo"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.<span class="keyword">reduce</span>(callback, initialValue)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">callback	<span class="function"><span class="keyword">Function</span></span>类型对每个数组元素执行的回调函数。</span><br><span class="line">initialValue	可选/任意类型作为首次调用 callback 的第一个参数。</span><br></pre></td></tr></table></figure>
+<p>reduce()方法中的 callback 回调函数默认支持 4 个参数。</p>
+<p>第 1 个(previousValue)： 上一次执行 callback 的返回值；<br>第 2 个(currentValue): 数组中当前被处理的元素；<br>第 3 个(index)： 当前被处理元素的索引值；<br>第 4 个(array)： 调用reduce()方法的数组本身。</p>
+<p>首次执行 callback 函数时，如果指定了 initialValue ，则使用 initialValue 作为 callback 的第一个参数(previousValue)，数组中第一个元素作为第二个参数(currentValue)；如果没指定 initialValue，则用数组的第一个元素作为 previousValue，第二个元素作为 currentValue。</p>
+<p>如果数组为空并且没有提供 initialValue， 会抛出TypeError。如果数组仅有一个元素（无论位置如何）并且没有提供 initialValue， 或者有提供 initialValue 但是数组为空，那么此唯一值将被返回并且callback不会被执行。</p>
+<p>callback只会在已经赋值的索引上执行，对于那些已经被删除或者从未被赋值的索引不会执行。请看下面示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">// [1, 2, undefined, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line">arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre,cur</span>)</span>&#123; <span class="keyword">return</span> <span class="built_in">String</span>(pre) + <span class="built_in">String</span>(cur) &#125;);  <span class="comment">// "12456"</span></span><br></pre></td></tr></table></figure>
+<p>每次的参数和返回值如下表：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">迭代历程	  previous current index       array            return value</span><br><span class="line">第<span class="number">1</span>次调用     <span class="number">1</span>         <span class="number">2</span>     <span class="number">1</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">12</span></span><br><span class="line">第<span class="number">2</span>次调用     <span class="number">12</span>        <span class="number">4</span>     <span class="number">3</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">124</span></span><br><span class="line">第<span class="number">3</span>次调用     <span class="number">124</span>       <span class="number">5</span>     <span class="number">4</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">1245</span></span><br><span class="line">第<span class="number">4</span>次调用     <span class="number">1245</span>      <span class="number">6</span>     <span class="number">5</span>   [<span class="number">1</span>,<span class="number">2</span>, undefined, <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]    <span class="number">12456</span></span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong></p>
+<p>reduce()方法的返回值为任意类型，从数组的第一项开始，逐个遍历到最后，由 callback 函数构建一个最终返回值。</p>
+<p>reduce()不会改变原数组。</p>
+<p><strong>示例</strong></p>
+<pre><code>var total = [0, 1, 2, 3, 4].reduce(function(a, b) { return a + b });     // 10
+</code></pre><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">迭代历程	  previous current index       array    return value</span><br><span class="line">第<span class="number">1</span>次调用     <span class="number">0</span>         <span class="number">1</span>     <span class="number">1</span>       [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">1</span></span><br><span class="line">第<span class="number">2</span>次调用     <span class="number">1</span>         <span class="number">2</span>     <span class="number">2</span>       [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">3</span></span><br><span class="line">第<span class="number">3</span>次调用     <span class="number">3</span>         <span class="number">3</span>     <span class="number">3</span>       [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">6</span></span><br><span class="line">第<span class="number">4</span>次调用     <span class="number">6</span>         <span class="number">4</span>     <span class="number">4</span>       [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>给reduce()传入第二个参数 10 。<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var total = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>].reduce(function(a, b) &#123; return a + b &#125;, <span class="number">10</span>); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">迭代历程	  previous current index  array    return value</span><br><span class="line">第<span class="number">1</span>次调用     <span class="number">10</span>        <span class="number">0</span>     <span class="number">0</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">10</span></span><br><span class="line">第<span class="number">2</span>次调用     <span class="number">10</span>        <span class="number">1</span>     <span class="number">1</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">11</span></span><br><span class="line">第<span class="number">3</span>次调用     <span class="number">11</span>        <span class="number">2</span>     <span class="number">2</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">13</span></span><br><span class="line">第<span class="number">4</span>次调用     <span class="number">13</span>        <span class="number">3</span>     <span class="number">3</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">16</span></span><br><span class="line">第<span class="number">5</span>次调用     <span class="number">16</span>        <span class="number">4</span>     <span class="number">4</span>   [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]    <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<p>将数组扁平化。</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var flattened = <span class="string">[[0, 1], [2, 3], [4, 5]]</span>.reduce(<span class="function"><span class="keyword">function</span><span class="params">(a, b)</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">concat</span>(b);</span><br><span class="line">&#125;);</span><br><span class="line">// flattened 为 [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">迭代历程	previousValue	currentValue	index		array		return value</span><br><span class="line">第<span class="number">1</span>次调用   [<span class="number">0</span>, <span class="number">1</span>]          [<span class="number">2</span>, <span class="number">3</span>]          <span class="number">1</span>    [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]]  [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">第<span class="number">2</span>次调用   [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]    [<span class="number">4</span>, <span class="number">5</span>]          <span class="number">2</span>    [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]]  [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">把下面的代码插入到脚本的开头来解决低级IE的兼容。</span><br><span class="line"><span class="keyword">if</span> (<span class="string">'function'</span> !== <span class="keyword">typeof</span> <span class="built_in">Array</span>.prototype.reduce) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.prototype.reduce = <span class="function"><span class="keyword">function</span>(<span class="params">callback, opt_initialValue</span>)</span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">null</span> === <span class="keyword">this</span> || <span class="string">'undefined'</span> === <span class="keyword">typeof</span> <span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="comment">// At the moment all modern browsers, that support strict mode, have</span></span><br><span class="line">      <span class="comment">// native implementation of Array.prototype.reduce. For instance, IE8</span></span><br><span class="line">      <span class="comment">// does not support strict mode, so this check is actually useless.</span></span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(</span><br><span class="line">          <span class="string">'Array.prototype.reduce called on null or undefined'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">'function'</span> !== <span class="keyword">typeof</span> callback) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(callback + <span class="string">' is not a function'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> index, value,</span><br><span class="line">        length = <span class="keyword">this</span>.length &gt;&gt;&gt; <span class="number">0</span>,</span><br><span class="line">        isValueSet = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">1</span> &lt; <span class="built_in">arguments</span>.length) &#123;</span><br><span class="line">      value = opt_initialValue;</span><br><span class="line">      isValueSet = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (index = <span class="number">0</span>; length &gt; index; ++index) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.hasOwnProperty(index)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (isValueSet) &#123;</span><br><span class="line">          value = callback(value, <span class="keyword">this</span>[index], index, <span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">          value = <span class="keyword">this</span>[index];</span><br><span class="line">          isValueSet = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!isValueSet) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Reduce of empty array with no initial value'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/02/19/javascript/array/reduce/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javascript/array/isArray" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/02/18/javascript/array/isArray/">isArray()是否为数组</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/02/18/javascript/array/isArray/" class="archive-article-date">
+  	<time datetime="2018-02-18T07:31:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-18</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>概述</strong><br>Array.isArray()方法用来判断某个值是否为数组。如果是，返回 true，否则返回 false。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.<span class="built_in">isArray</span>(value)</span><br></pre></td></tr></table></figure>
+<p><strong>参数</strong></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">value</span>	任意类型需要被检测的值。</span><br></pre></td></tr></table></figure>
+<p><strong>返回值</strong></p>
+<p>Array.isArray()方法的返回值为Boolean类型，被检测的值为数组返回 true，不是数组返回 false。</p>
+<p><strong>示例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面的函数调用都返回 true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray([]);</span><br><span class="line"><span class="built_in">Array</span>.isArray([<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="keyword">new</span> <span class="built_in">Array</span>());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鲜为人知的事实：其实 Array.prototype 也是一个数组。</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面的函数调用都返回 false</span></span><br><span class="line"><span class="built_in">Array</span>.isArray();</span><br><span class="line"><span class="built_in">Array</span>.isArray(&#123;&#125;);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">undefined</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="number">17</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="string">'Array'</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">true</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="literal">false</span>);</span><br><span class="line"><span class="built_in">Array</span>.isArray(&#123; <span class="attr">__proto__</span>: <span class="built_in">Array</span>.prototype &#125;);</span><br></pre></td></tr></table></figure>
+<p>兼容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">把下面的代码插入到脚本的开头来解决低级IE的兼容。</span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray) &#123;</span><br><span class="line">  <span class="built_in">Array</span>.isArray = <span class="function"><span class="keyword">function</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arg) === <span class="string">'[object Array]'</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/02/18/javascript/array/isArray/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-javascript/array/indexOf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -891,305 +1209,6 @@
 
 
   
-    <article id="post-javascript/array/splice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/02/10/javascript/array/splice/">splice()移除/替换数组</a>
-    </h1>
-  
-
-        <br/>
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-        </a>
-        
-        <a href="/blog/2018/02/10/javascript/array/splice/" class="archive-article-date">
-  	<time datetime="2018-02-10T01:07:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-10</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-             
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概述</strong><br>splice()方法用于从当前数组中移除一部分连续的元素。如有需要，还可以在所移除元素的位置上插入一个或多个新的元素。该方法以数组形式返回当前数组中被移除的元素</p>
-<p><strong>语法</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">array</span><span class="selector-class">.splice</span>(<span class="selector-tag">start</span>, <span class="selector-tag">deleteCount</span>, <span class="selector-tag">item1</span>, <span class="selector-tag">item2</span>,..<span class="selector-class">.itemN</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>参数</strong></p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">start</span>	<span class="keyword">Number</span>类型从数组中移除元素操作的起点索引。</span><br><span class="line">deleteCount	<span class="keyword">Number</span>类型需要移除的元素个数。</span><br><span class="line">itemN	可选/任意类型要添加到数组中元素被移除位置的新元素，可以有多个。</span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<p>splice()方法从索引 start 开始，移除 deleteCount 个元素(包含 start 索引元素)，在 start 索引处插入 itemN 。</p>
-<p>如果 start &gt;= length ，则不会移除任何元素，返回一个空数组。<br>如果 start 是负值，则表示从数组的倒数第几位开始移除元素。可视为 length + start，此处length为数组的长度。<br>如果 deleteCount 为 0 或负数，则不会移除任何元素，返回一个空数组。<br>如果参数 itemN 为数组类型(Array)，仍会被当作一个元素看待，插入到当前数组中。</p>
-<p><strong>返回值</strong></p>
-<p>splice()方法的返回值为Array类型，返回当前数组中被移除的元素所组成的新数组。<br>当移除数组中的元素时，数组的length属性也会随之改变。一般而言，数组的length属性将会减N(N为实际移除的元素个数)。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="literal">true</span>, <span class="number">1234</span>, <span class="number">-1024</span>, <span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从索引 2 开始，移除 3 个元素</span></span><br><span class="line"><span class="keyword">var</span> res = arr.splice(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);          <span class="comment">// ["萤光之烛", 2018, 10] </span></span><br><span class="line"><span class="built_in">console</span>.log(res);          <span class="comment">// [true, 1234, -1024]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从索引 1 开始，移除 2 个元素，插入两个元素</span></span><br><span class="line"><span class="keyword">var</span> res1 = arr.splice(<span class="number">1</span>, <span class="number">2</span>, <span class="string">'newitem1'</span>, <span class="string">'newitem2'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);          <span class="comment">// ["萤光之烛", "newitem1", "newitem2"] </span></span><br><span class="line"><span class="built_in">console</span>.log(res1);         <span class="comment">// [2018, 10]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从索引 1 开始，移除 0 个元素，插入两个元素</span></span><br><span class="line"><span class="keyword">var</span> res2 = arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="string">'abc'</span>, <span class="string">'xyz'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);          <span class="comment">// ["萤光之烛", "abc", "xyz", "newitem1", "newitem2"]        </span></span><br><span class="line"><span class="built_in">console</span>.log(res2);         <span class="comment">// 返回空数组 []</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2018/02/10/javascript/array/splice/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript/array/sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/02/09/javascript/array/sort/">sort()数组排序</a>
-    </h1>
-  
-
-        <br/>
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-        </a>
-        
-        <a href="/blog/2018/02/09/javascript/array/sort/" class="archive-article-date">
-  	<time datetime="2018-02-09T01:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-09</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-             
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概述</strong><br>sort()方法用于将当前数组对象的元素按指定顺序进行排序，并返回排序后的数组。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>.<span class="built_in">sort</span>(compareFunction)</span><br></pre></td></tr></table></figure>
-<p><strong>参数</strong></p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compareFunction	可选/<span class="function"><span class="keyword">Function</span></span>类型指定如何比较元素顺序的函数。</span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<p>如果省略compareFunction参数，元素将按ASCII字符顺序的升序进行排列。<br>如果提供了compareFunction参数，那么数组会按照调用该函数的返回值排序。记 a 和 b 是两个将要被比较的元素：</p>
-<p>如果 compareFunction(a, b) 小于 0 ， a 会被排列到 b 之前；<br>如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变；<br>如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。<br>sort()方法对数组如何排序完全取决于compareFunction函数，例如对数组[1,4,3,2,5] 排序。<br>升序，小的在前大的在后：compareFunction(a, b){return a-b}<br>降序，大的在前小的在后：compareFunction(a, b){return b-a}</p>
-<p><strong>返回值</strong></p>
-<p>sort()方法的返回值为Array类型，返回排序后的数组对象。<br>在排序过程中，并不会创建新的数组对象，返回的数组对象就是经过排序后的当前数组本身。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'萤光之烛'</span>, <span class="number">2018</span>, <span class="literal">true</span>, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照ASCII字符顺序进行升序排列</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.sort());               <span class="comment">// [1234, 2018, "萤光之烛", true]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">12</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">14</span>];</span><br><span class="line"><span class="comment">//  升序排列</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareNumbers</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr1.sort(compareNumbers)) <span class="comment">// [2, 3, 5, 8, 12, 14]</span></span><br></pre></td></tr></table></figure>
-<p>sort()方法可以使用函数表达式方便地书写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(numbers);         <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line">numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> b - a;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(numbers);         <span class="comment">// [5, 4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure>
-<p>对象可以按照某个属性排序</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var items = [</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Edward'</span>, <span class="keyword">value</span>: <span class="number">21</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Sharpe'</span>, <span class="keyword">value</span>: <span class="number">37</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'And'</span>, <span class="keyword">value</span>: <span class="number">45</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'The'</span>, <span class="keyword">value</span>: -<span class="number">12</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Magnetic'</span> , <span class="keyword">value</span>: <span class="number">99</span> &#125;,</span><br><span class="line">  &#123; <span class="keyword">name</span>: <span class="string">'Zeros'</span>, <span class="keyword">value</span>: <span class="number">37</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">items.sort(<span class="function"><span class="keyword">function</span></span> (a, b) &#123;</span><br><span class="line">  <span class="keyword">if</span> (a.<span class="keyword">value</span> &gt; b.<span class="keyword">value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (a.<span class="keyword">value</span> &lt; b.<span class="keyword">value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// <span class="number">0</span> : &#123;<span class="keyword">name</span>: <span class="string">"The"</span>, <span class="keyword">value</span>: -<span class="number">12</span>&#125;</span><br><span class="line">// <span class="number">1</span> : &#123;<span class="keyword">name</span>: <span class="string">"Edward"</span>, <span class="keyword">value</span>: <span class="number">21</span>&#125;</span><br><span class="line">// <span class="number">2</span> : &#123;<span class="keyword">name</span>: <span class="string">"Sharpe"</span>, <span class="keyword">value</span>: <span class="number">37</span>&#125;</span><br><span class="line">// <span class="number">3</span> : &#123;<span class="keyword">name</span>: <span class="string">"Zeros"</span>, <span class="keyword">value</span>: <span class="number">37</span>&#125;</span><br><span class="line">// <span class="number">4</span> : &#123;<span class="keyword">name</span>: <span class="string">"And"</span>, <span class="keyword">value</span>: <span class="number">45</span>&#125;</span><br><span class="line">// <span class="number">5</span> : &#123;<span class="keyword">name</span>: <span class="string">"Magnetic"</span>, <span class="keyword">value</span>: <span class="number">99</span>&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2018/02/09/javascript/array/sort/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript/array/slice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/02/08/javascript/array/slice/">slice()提取数组子元素</a>
-    </h1>
-  
-
-        <br/>
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-        </a>
-        
-        <a href="/blog/2018/02/08/javascript/array/slice/" class="archive-article-date">
-  	<time datetime="2018-02-08T03:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-             
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>概述</strong><br>slice()方法把数组中一部分(连续的一段)提取复制到一个新的数组中，并返回这个新的数组。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>.slice(<span class="keyword">start</span>, <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>参数</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span>	<span class="built_in">Number</span>类型从该索引处 (包含该索引元素) 开始提取原数组中元素。</span><br><span class="line"><span class="keyword">end</span>	可选/<span class="built_in">Number</span>类型在该索引处 (不包含该索引元素) 结束提取原数组中元素。</span><br></pre></td></tr></table></figure>
-<p>注意:</p>
-<p>如果 start 为负，则表示从原数组中的倒数第几个元素开始提取，也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。为负时可视为length + start，此处length为数组的长度。<br>如果 end 为负，则表示从原数组中的倒数第几个元素结束提取，同上可视为length + end，此处length为数组的长度。<br>如果 end 被省略，则slice()会一直提取到原数组末尾。即end = length。<br>如果 end &lt;= start，则不会提取任何元素复制到新数组中，返回一个空数组。<br>如果 start和end 同时被省略，则从原数组索引 0 到最后一个元素完整提取，相当于浅复制整个数组。</p>
-<p><strong>返回值</strong></p>
-<p>slice()方法的返回值为Array类型, 返回当前数组中索引 start (包含索引 start 元素) 到索引 end (不包括索引 end 元素)部分的元素组成的数组。<br>slice()方法不会改变调用它的数组。</p>
-<p><strong>示例</strong></p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr = ['萤光之烛', <span class="number">2018</span>, true, <span class="number">1234</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取索引 1 , 3 的部分(不包括索引0,2)</span></span><br><span class="line">console.log(arr.slice(<span class="number">1</span>,<span class="number">3</span>))       <span class="comment">// [2018, true]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// start 为负  等价于 -3 + length = 1</span></span><br><span class="line">console.log(arr.slice(<span class="number">-3</span>,<span class="number">3</span>))      <span class="comment">// [2018, true]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略 end</span></span><br><span class="line">console.log(arr.slice(<span class="number">1</span>))         <span class="comment">// [2018, true, 1234]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//end &lt;= start 时返回空数组</span></span><br><span class="line">console.log(arr.slice(<span class="number">3</span>,<span class="number">2</span>))       <span class="comment">// []</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无参数</span></span><br><span class="line">console.log(arr.slice())          <span class="comment">// ["萤光之烛", 2018, true, 1234]</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JS数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2018/02/08/javascript/array/slice/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/blog/">&laquo; Prev</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/3/">Next &raquo;</a>
@@ -1255,25 +1274,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -1294,11 +1305,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,26 +1371,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="https://baidu.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>百度</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://google.com.hk" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>谷歌</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://ying.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>必应</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
