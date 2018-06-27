@@ -351,14 +351,14 @@
 
 
   
-    <article id="post-hexo/hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-git/git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
+      <a class="article-title" href="/blog/2018/04/25/git/git/">Git常用命令与配置</a>
     </h1>
   
 
@@ -370,7 +370,7 @@
           </span>
         </a>
         
-        <a href="/blog/2018/04/25/hexo/hexo/" class="archive-article-date">
+        <a href="/blog/2018/04/25/git/git/" class="archive-article-date">
   	<time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
 </a>
         
@@ -381,14 +381,21 @@
     <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一，hexo install 安装<br>    安装好Git Nodejs<br>    通过git 安装hexo及常用命令</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">//安装Hexo</span></span><br><span class="line">hexo -v  <span class="comment">//检查hexo是否安装成功</span></span><br><span class="line">hexo init 'blog'<span class="comment">//初始化该文件夹 cd blog</span></span><br><span class="line">npm install <span class="comment">//安装所需要的组件</span></span><br><span class="line">hexo server <span class="comment">//开启服务器 简写hexo s</span></span><br><span class="line">hexo <span class="keyword">generate</span>  <span class="comment">//生成静态网页 简写hexo g</span></span><br><span class="line">hexo deploy <span class="comment">//开始部署coding、github  简写hexo d</span></span><br><span class="line">hexo s --debug <span class="comment">//调试模式</span></span><br><span class="line">hexo <span class="keyword">new</span> title <span class="comment">//创建一篇新文章</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="keyword">generate</span> &amp;&amp; hexo deploy <span class="comment">//一键清除，生成，部署</span></span><br></pre></td></tr></table></figure>
+        <p>一，配置私钥</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="selector-class">.name</span> <span class="string">"user"</span>    <span class="comment">//设置名字</span></span><br><span class="line">git config --global user<span class="selector-class">.email</span> <span class="string">"user@qq.com"</span>  <span class="comment">//设置邮箱  </span></span><br><span class="line">ssh-keygen -t rsa -C  <span class="comment">//三次回车即可生成 ssh key</span></span><br><span class="line">ssh-keygen  <span class="comment">//不同平台可以使用这个 ssh key</span></span><br><span class="line">cat ~/.ssh/id_rsa<span class="selector-class">.pub</span>  <span class="comment">//查看你的 public key</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>二，部署配置</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>: <span class="comment">//键值 : 后面带空格</span></span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: </span><br><span class="line">    <span class="attribute">github</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:xxx/Blog.git,master</span><br><span class="line">    <span class="attribute">coding</span>: git<span class="variable">@git</span>.coding.<span class="attribute">net</span>:xxx/Blog.git,master</span><br></pre></td></tr></table></figure>
+<p>二，在gitee，coding，github添加你的key和ssh</p>
+<ul>
+<li>添加方法大同小异 个人 -&gt; 设置 -&gt; SSH 公钥 输入标题，以及public key，确认即可。</li>
+</ul>
 <hr>
-<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
-<p><a href="http://naotu.baidu.com/file/ebb77d3d6b03273046a19c36e69a4b83" target="_blank" rel="noopener">个人在线的思维导图</a><br><img src="/blog/2018/04/25/hexo/hexo/mind.png" alt="logo"><br>至于主题，喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
+<p>三，git和gitee项目关联</p>
+<p>  提交仓库</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> . <span class="comment">//提交所有 </span></span><br><span class="line">git <span class="keyword">add</span> <span class="string">''</span>  <span class="comment">//提交单个</span></span><br><span class="line">git commit -m <span class="string">"first"</span>  <span class="comment">//提交时候设置的版本号</span></span><br><span class="line">git push <span class="comment">//提交 git push origin master</span></span><br><span class="line">git remote <span class="keyword">add</span> origin +<span class="string">"仓库地址"</span></span><br><span class="line">git remote -v <span class="comment">//查询权限</span></span><br><span class="line">git push --force origin master <span class="comment">//替换当前</span></span><br></pre></td></tr></table></figure>
+<p>  提取仓库</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">//第一次拉取代码</span></span><br><span class="line"><span class="title">git</span> pull // 拉取代码 </span><br><span class="line">git fetch --all //下载远程的库</span><br><span class="line">git reset --hard origin/<span class="keyword">master</span> <span class="title">//强制与master</span>覆盖</span><br></pre></td></tr></table></figure>
+<p>  分支</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch ''    <span class="comment">//新建分支</span></span><br><span class="line">git checkout ''  <span class="comment">//切换分支</span></span><br><span class="line">git pull    <span class="comment">//拉取分支到本地开发</span></span><br><span class="line">git branch   <span class="comment">//查看当前分支</span></span><br><span class="line">git branch -D '' <span class="comment">//删除分支</span></span><br><span class="line">git add . <span class="meta">&amp;&amp; git commit -m 'cont' &amp;&amp; git push  <span class="comment">//切换到分支,再提交内容，</span></span></span><br><span class="line">git checkout master <span class="meta">&amp;&amp; git merge origin/分支名 &amp;&amp; git push 切换到主分支,再合并分支</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -402,7 +409,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
@@ -412,7 +419,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2018/04/25/hexo/hexo/">展开全文 >></a>
+          <a class="article-more-a" href="/blog/2018/04/25/git/git/">展开全文 >></a>
         </p>
       
 
@@ -542,104 +549,6 @@
 
 
   
-    <article id="post-git/git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2018/04/25/git/git/">Git常用命令与配置</a>
-    </h1>
-  
-
-        <br/>
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-        </a>
-        
-        <a href="/blog/2018/04/25/git/git/" class="archive-article-date">
-  	<time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
-</a>
-        
-      </header>
-    
-    <!-- 目录内容 -->
-             
-    <!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一，配置私钥</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="selector-class">.name</span> <span class="string">"user"</span>    <span class="comment">//设置名字</span></span><br><span class="line">git config --global user<span class="selector-class">.email</span> <span class="string">"user@qq.com"</span>  <span class="comment">//设置邮箱  </span></span><br><span class="line">ssh-keygen -t rsa -C  <span class="comment">//三次回车即可生成 ssh key</span></span><br><span class="line">ssh-keygen  <span class="comment">//不同平台可以使用这个 ssh key</span></span><br><span class="line">cat ~/.ssh/id_rsa<span class="selector-class">.pub</span>  <span class="comment">//查看你的 public key</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>二，在gitee，coding，github添加你的key和ssh</p>
-<ul>
-<li>添加方法大同小异 个人 -&gt; 设置 -&gt; SSH 公钥 输入标题，以及public key，确认即可。</li>
-</ul>
-<hr>
-<p>三，git和gitee项目关联</p>
-<p>  提交仓库</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> . <span class="comment">//提交所有 </span></span><br><span class="line">git <span class="keyword">add</span> <span class="string">''</span>  <span class="comment">//提交单个</span></span><br><span class="line">git commit -m <span class="string">"first"</span>  <span class="comment">//提交时候设置的版本号</span></span><br><span class="line">git push <span class="comment">//提交 git push origin master</span></span><br><span class="line">git remote <span class="keyword">add</span> origin +<span class="string">"仓库地址"</span></span><br><span class="line">git remote -v <span class="comment">//查询权限</span></span><br><span class="line">git push --force origin master <span class="comment">//替换当前</span></span><br></pre></td></tr></table></figure>
-<p>  提取仓库</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">//第一次拉取代码</span></span><br><span class="line"><span class="title">git</span> pull // 拉取代码 </span><br><span class="line">git fetch --all //下载远程的库</span><br><span class="line">git reset --hard origin/<span class="keyword">master</span> <span class="title">//强制与master</span>覆盖</span><br></pre></td></tr></table></figure>
-<p>  分支</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch ''    <span class="comment">//新建分支</span></span><br><span class="line">git checkout ''  <span class="comment">//切换分支</span></span><br><span class="line">git pull    <span class="comment">//拉取分支到本地开发</span></span><br><span class="line">git branch   <span class="comment">//查看当前分支</span></span><br><span class="line">git branch -D '' <span class="comment">//删除分支</span></span><br><span class="line">git add . <span class="meta">&amp;&amp; git commit -m 'cont' &amp;&amp; git push  <span class="comment">//切换到分支,再提交内容，</span></span></span><br><span class="line">git checkout master <span class="meta">&amp;&amp; git merge origin/分支名 &amp;&amp; git push 切换到主分支,再合并分支</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/blog/2018/04/25/git/git/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-hexo/images" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -712,6 +621,97 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/blog/2018/04/25/hexo/images/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo/hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2018/04/25/hexo/hexo/">hexo静态资源博客搭建</a>
+    </h1>
+  
+
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+        </a>
+        
+        <a href="/blog/2018/04/25/hexo/hexo/" class="archive-article-date">
+  	<time datetime="2018-04-25T07:03:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-25</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+             
+    <!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一，hexo install 安装<br>    安装好Git Nodejs<br>    通过git 安装hexo及常用命令</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  <span class="comment">//安装Hexo</span></span><br><span class="line">hexo -v  <span class="comment">//检查hexo是否安装成功</span></span><br><span class="line">hexo init 'blog'<span class="comment">//初始化该文件夹 cd blog</span></span><br><span class="line">npm install <span class="comment">//安装所需要的组件</span></span><br><span class="line">hexo server <span class="comment">//开启服务器 简写hexo s</span></span><br><span class="line">hexo <span class="keyword">generate</span>  <span class="comment">//生成静态网页 简写hexo g</span></span><br><span class="line">hexo deploy <span class="comment">//开始部署coding、github  简写hexo d</span></span><br><span class="line">hexo s --debug <span class="comment">//调试模式</span></span><br><span class="line">hexo <span class="keyword">new</span> title <span class="comment">//创建一篇新文章</span></span><br><span class="line">hexo clean &amp;&amp; hexo <span class="keyword">generate</span> &amp;&amp; hexo deploy <span class="comment">//一键清除，生成，部署</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>二，部署配置</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>: <span class="comment">//键值 : 后面带空格</span></span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: </span><br><span class="line">    <span class="attribute">github</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:xxx/Blog.git,master</span><br><span class="line">    <span class="attribute">coding</span>: git<span class="variable">@git</span>.coding.<span class="attribute">net</span>:xxx/Blog.git,master</span><br></pre></td></tr></table></figure>
+<hr>
+<p>三，线上加载错乱的路径设置<br>github路径是<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:xxx/Blog.git<br>在根目录设置root: /Blog/<br>一级域名，则不用</p>
+<p><a href="http://naotu.baidu.com/file/ebb77d3d6b03273046a19c36e69a4b83" target="_blank" rel="noopener">个人在线的思维导图</a><br><img src="/blog/2018/04/25/hexo/hexo/mind.png" alt="logo"><br>至于主题，喜欢折腾个自己喜欢的，next也不错，功能丰富，就是UI不够细致</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/blog/2018/04/25/hexo/hexo/">展开全文 >></a>
         </p>
       
 
@@ -1252,7 +1252,7 @@ console.log(stu3.name, stu3.age, stu3.sex, stu3.weight, stu3.score);
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 ChauncyTang
+    		&copy; 2018 ChauncyTang &nbsp;粤ICP备18011775号-1
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1334,11 +1334,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
